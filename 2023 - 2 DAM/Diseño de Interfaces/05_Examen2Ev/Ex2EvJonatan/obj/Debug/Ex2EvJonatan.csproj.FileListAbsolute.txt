@@ -1,0 +1,15 @@
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\bin\Debug\Ex2EvJonatan.exe.config
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\bin\Debug\Ex2EvJonatan.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\bin\Debug\Ex2EvJonatan.pdb
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.csproj.AssemblyReference.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.csproj.SuggestedBindingRedirects.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.Padre.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.Properties.Resources.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.PyD.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.csproj.GenerateResource.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.csproj.CoreCompileInputs.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.pdb
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.Consulta.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.CrearFactura.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ex2EvJonatan\Ex2EvJonatan\obj\Debug\Ex2EvJonatan.AbrirFactura.resources

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">p02Primos</string>
+    <string name="txtEnunciado">Posicion del nº Primo (1...)</string>
+    <string name="button">PULSA AQUÍ</string>
+</resources>

@@ -1,0 +1,13 @@
+-- 1.- Sobre la DB facturacion, crear un trigger que al insertar un artículo en el campo stock guarde el valor del stock que se pasa como valor en la inserción si dicho valor es positivo y guarde un cero si el valor que se pasase en la inserción fuese negativo.
+
+ use comercial;
+ 
+ delimiter //
+ create trigger actualiza_stock_ins after insert on articulo
+ for each row
+ begin
+ if new.stock < 0 then
+ update articulo set stock=0 where cpd_art=new.cod_art;
+ end if;
+ end // delimiter ;
+

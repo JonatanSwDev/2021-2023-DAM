@@ -1,0 +1,11 @@
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\bin\Debug\Jonatan ejercicioClases.exe.config
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\bin\Debug\Jonatan ejercicioClases.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\bin\Debug\Jonatan ejercicioClases.pdb
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\obj\Debug\Jonatan ejercicioClases.csproj.AssemblyReference.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\obj\Debug\Jonatan ejercicioClases.csproj.SuggestedBindingRedirects.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\obj\Debug\Jonatan_ejercicioClases.Menu.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\obj\Debug\Jonatan_ejercicioClases.Properties.Resources.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\obj\Debug\Jonatan ejercicioClases.csproj.GenerateResource.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\obj\Debug\Jonatan ejercicioClases.csproj.CoreCompileInputs.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\obj\Debug\Jonatan ejercicioClases.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan ejercicioClases\Jonatan ejercicioClases\obj\Debug\Jonatan ejercicioClases.pdb

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla</title>
+    <style>
+        table {
+          border: 2px solid black;
+        }
+        tr, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width:200px ;
+        }
+        </style>
+    <script src="Ejercicio3.js"></script>
+</head>
+<body>
+    <form name="formulario">
+        <input type="button" value="Añadir fila" onclick="insertar();">
+        <input type="button" value="Eliminar Fila" onclick="eliminar();">
+    </form>
+    <table id="tabla">
+        <tr>
+            <td>
+                Celda[0][0]
+            </td>
+            <td>
+                Celda[0][1]
+            </td>
+        </tr>
+    </table>
+</body> 
+</html>

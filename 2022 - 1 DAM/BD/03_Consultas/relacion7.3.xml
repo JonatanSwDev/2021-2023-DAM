@@ -1,0 +1,471 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<relacionsql numrelacion="R7.3">
+	<configdb>
+		<hostdb>localhost</hostdb>
+		<esquemadb>empleados</esquemadb>
+		<usuariodb>empleados</usuariodb>
+		<passdb>empleados</passdb>
+	</configdb>
+	<student>
+		<alumno>GOMEZ GARCIA JONATAN</alumno>
+		<finalgrade>0</finalgrade>
+		<totalgrade>0</totalgrade>
+		<maxgrade>0</maxgrade>
+	</student>
+	<consultas>
+		<query id="1" peso="1">
+			<descq>Lista el primer apellido de todos los empleados.</descq>
+			<resppropo>
+			select apellido1
+			from empleado;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="2" peso="1">
+			<descq>Lista el primer apellido de los empleados eliminando los apellidos que estén repetidos.</descq>
+			<resppropo>
+			select distinct(apellido1)
+			from empleado;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="3" peso="1">
+			<descq>Lista todas las columnas de la tabla empleado</descq>
+			<resppropo>
+			desc empleado;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="4" peso="2">
+			<descq>Lista el nombre y los apellidos de todos los empleados.</descq>
+			<resppropo>
+			select nombre, apellido1, apellido2
+			from empleado;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="5" peso="2">
+			<descq>Lista el código de los departamentos de los empleados que aparecen en la tabla empleado.</descq>
+			<resppropo>
+			select codigo_departamento
+			from empleado;
+			<!-- Si queremos descartar los nulos:
+			select codigo_departamento
+			from empleado
+            where codigo_departamento is not null; -->
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="6" peso="1">
+			<descq>Lista el código de los departamentos de los empleados que aparecen en la tabla empleado, eliminando los códigos que aparecen repetidos.</descq>
+			<resppropo>
+			select distinct(codigo_departamento)
+			from empleado;
+			<!-- Si queremos descartar los nulos:
+			select distinct(codigo_departamento)
+			from empleado
+            where codigo_departamento is not null; -->
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="7" peso="2">
+			<descq>Lista el nombre y apellidos de los empleados en una única columna llamada NAPELL.</descq>
+			<resppropo>
+			select concat(nombre,' ', apellido1, ' ', apellido2) as 'NAPELL'
+			from empleado;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="8" peso="2">
+			<descq>Lista el nombre y apellidos de los empleados en una única columna llamada NAPELL convirtiendo todos los caracteres en mayúscula</descq>
+			<resppropo>
+			select UPPER(concat(nombre,' ', apellido1, ' ', apellido2)) as 'NAPELL'
+			from empleado;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="9" peso="2">
+			<descq>Lista el nombre y apellidos de los empleados en una única columna llamada NAPELL, convirtiendo todos los caracteres en minúscula.</descq>
+			<resppropo>
+			select lower(concat(nombre,' ', apellido1, ' ', apellido2)) as 'NAPELL'
+			from empleado;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="10" peso="2">
+			<descq>Lista el código de los empleados junto al nif, pero el nif deberá aparecer en dos columnas, una mostrará únicamente los dígitos del
+			nif (DNIF) y la otra la letra (ENIF).</descq>
+			<resppropo>
+			select codigo, substring(nif, 1, 8) as DNIF, substring(nif, 9, 9) as ENIF
+			from empleado;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="11" peso="2">
+			<descq>Lista el nombre de cada departamento y el valor del presupuesto actual del que dispone.
+			Para calcular este dato tendrá que restar al valor del presupuesto inicial (columna presupuesto)
+			los gastos que se han generado (columna gastos). Tenga en cuenta que en algunos casos pueden existir valores negativos.
+			Utilice PRESACTUAL para la nueva columna columna que está calculando.</descq>
+			<resppropo>
+			select nombre, (presupuesto - gastos) as PRESACTUAL
+			from departamento;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="12" peso="2">
+			<descq>
+				Idem a 11 pero ordenado por presupuesto actual de forma ascenddente
+			</descq>
+			<resppropo>
+			select nombre, (presupuesto - gastos) as PRESACTUAL
+			from departamento
+            order by PRESACTUAL asc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="13" peso="1">
+			<descq>Lista el nombre de todos los departamentos ordenados de forma ascendente.</descq>
+			<resppropo>
+			select nombre
+			from departamento
+            order by nombre asc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="14" peso="1">
+			<descq>Lista el nombre de todos los departamentos ordenados de forma desscendente</descq>
+			<resppropo>
+			select nombre
+			from departamento
+            order by nombre desc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="15" peso="2">
+			<descq>Lista los apellidos y el nombre de todos los empleados, ordenados de forma alfabética tendiendo en cuenta en primer lugar sus apellidos
+			y luego su nombre</descq>
+			<resppropo>
+			select apellido1, apellido2, nombre
+			from empleado
+            order by apellido1, apellido2, nombre asc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="16" peso="2">
+			<descq>Devuelve una lista con el nombre y el presupuesto, de los 3 departamentos que tienen mayor presupuesto</descq>
+			<resppropo>
+			select nombre, presupuesto
+			from departamento
+            order by presupuesto desc
+            limit 3;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="17" peso="2">
+			<descq>Devuelve una lista con el nombre y el presupuesto, de los 3 departamentos que tienen menor presupuesto</descq>
+			<resppropo>
+			select nombre, presupuesto
+			from departamento
+            order by presupuesto asc
+            limit 3;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="18" peso="2">
+			<descq>Devuelve una lista con el nombre y el gasto, de los 2 departamentos que tienen mayor gasto.</descq>
+			<resppropo>
+			select nombre, gastos
+			from departamento
+            order by gastos desc
+            limit 2;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="19" peso="2">
+			<descq>Devuelve una lista con el nombre y el gasto, de los 2 departamentos que tienen menor gasto</descq>
+			<resppropo>
+			select nombre, gastos
+			from departamento
+            order by gastos asc
+            limit 2;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="20" peso="2">
+			<descq>Devuelve una lista con 5 filas a partir de la tercera fila de la tabla empleado. La tercera fila se debe incluir en la respuesta.
+			La respuesta debe incluir todas las columnas de la tabla empleado.</descq>
+			<resppropo>
+			select *
+			from empleado
+            limit 2, 5;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="21" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos y el presupuesto, de aquellos que tienen un presupuesto mayor o igual a 150000 euros</descq>
+			<resppropo>
+			<![CDATA[ select nombre, presupuesto
+			from departamento
+            where presupuesto >= 150000; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="22" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos y el gasto, de aquellos que tienen menos de 5000 euros de gastos.</descq>
+			<resppropo>
+			<![CDATA[ select nombre, gastos
+			from departamento
+            where gastos < 5000; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="23" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos y el presupesto, de aquellos que tienen un presupuesto entre 100000 y 200000 euros.
+			Sin utilizar el operador BETWEEN.</descq>
+			<resppropo>
+			<![CDATA[ select nombre, presupuesto
+			from departamento
+            where presupuesto >= 100000
+            and presupuesto <= 200000; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="24" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos que no tienen un presupuesto entre 100000 y 200000 euros.
+			Sin utilizar el operador BETWEEN.</descq>
+			<resppropo>
+			<![CDATA[ select nombre
+			from departamento
+            where not (presupuesto >= 100000
+            and presupuesto <= 200000); ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="25" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos que tienen un presupuesto entre 100000 y 200000 euros.
+			Utilizando el operador BETWEEN.</descq>
+			<resppropo>
+			select nombre
+			from departamento
+            where presupuesto between 100000 and 200000;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="26" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos que no tienen un presupuesto entre 100000 y 200000 euros.
+			Utilizando el operador BETWEEN.</descq>
+			<resppropo>
+			select nombre
+			from departamento
+            where not (presupuesto between 100000 and 200000);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="27" peso="3">
+			<descq>Devuelve una lista con el nombre de los departamentos, gastos y presupuesto, de quellos departamentos donde los gastos sean mayores
+			que el presupuesto del que disponen.</descq>
+			<resppropo>
+			<![CDATA[ select nombre, gastos, presupuesto
+			from departamento
+            where gastos > presupuesto; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="28" peso="3">
+			<descq>Devuelve una lista con el nombre de los departamentos, gastos y presupuesto, de aquellos departamentos donde los gastos sean menores
+			que el presupuesto del que disponen.</descq>
+			<resppropo>
+			<![CDATA[ select nombre, gastos, presupuesto
+			from departamento
+            where gastos < presupuesto; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="29" peso="3">
+			<descq>Devuelve una lista con el nombre de los departamentos, gastos y presupuesto, de aquellos departamentos donde los gastos
+			sean iguales al presupuesto del que disponen.
+			</descq>
+			<resppropo>
+			select nombre, gastos, presupuesto
+			from departamento
+            where gastos = presupuesto;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="30" peso="2">
+			<descq>Lista todos los datos de los empleados cuyo segundo apellido sea NULL.
+			</descq>
+			<resppropo>
+			select *
+			from empleado
+            where apellido2 is null;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="31" peso="2">
+			<descq>Lista todos los datos de los empleados cuyo segundo apellido no sea NULL.</descq>
+			<resppropo>
+			select *
+			from empleado
+            where apellido2 is not null;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="32" peso="2">
+			<descq> 
+				Lista todos los datos de los empleados cuyo segundo apellido sea López
+			</descq>
+			<resppropo>
+			select *
+			from empleado
+            where apellido2 = "López";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="33" peso="2">
+			<descq>Lista todos los datos de los empleados cuyo segundo apellido sea Díaz o Moreno. Sin utilizar el operador IN.</descq>
+			<resppropo>
+			select *
+			from empleado
+            where apellido2 = "Díaz"
+            or apellido2 = "Moreno";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="34" peso="4">
+			<descq>Lista todos los datos de los empleados cuyo segundo apellido sea Díaz o Moreno. Utilizando el operador IN</descq>
+			<resppropo>
+			select *
+			from empleado
+            where apellido2 in ("Díaz", "Moreno");
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="35" peso="4">
+			<descq>Lista los nombres, apellidos y nif de los empleados que trabajan en el departamento 3.</descq>
+			<resppropo>
+			select nombre, apellido1, apellido2, nif
+			from empleado
+            where codigo_departamento = 3;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="36" peso="4">
+			<descq>Lista los nombres, apellidos y nif de los empleados que trabajan en los departamentos 2, 4 o 5. </descq>
+			<resppropo>
+			select nombre, apellido1, apellido2, nif
+			from empleado
+            where codigo_departamento in (2, 4, 5);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+	</consultas> 
+</relacionsql>

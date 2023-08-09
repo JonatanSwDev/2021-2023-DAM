@@ -1,0 +1,83 @@
+<!--Jonatan Gomez Garcia-->
+<html>
+    <head><title>Formulario verde</title>
+     <style>
+      .cuadrorojo{
+        border-style:solid; border-width: 2px; border-radius: 2px; border-color:red;
+      }
+     </style> 
+    </head>
+    <body>
+      <form method="get" autocomplete>
+      <table align="center" style="background-color:green; color:white; border-style:solid; border-width: 7px; border-radius: 7px; border-color:#96D5CB;" >
+          
+          <tr><td style="padding-bottom:20px;" colspan="4"></td></tr>
+          
+          <tr>
+                <td width="40"></td>
+                <td colspan="3">Datos del comprador</td>
+              </tr>
+
+              <tr><td style="padding-bottom:20px;" colspan="4"></td></tr>
+
+              <tr>
+                <td width="40"></td>
+                <td width="40"></td>
+                <td width="80"><label form="nombre">Nombre:</label></td>
+                <td width="240" style="padding-right:20px;"><input class="cuadrorojo" name="nombre" type="text" value="" size="25" maxlength="30" pattern="[A-Za-z]{3}" placeholder="Escribe tu numbre completo" ></td>
+              </tr>
+              <tr>
+                <td width="40"></td>
+                <td width="40"></td>
+                <td width="80"><label form="email">Email:</label></td>
+                <td width="240" style="padding-right:20px;"><input class="cuadrorojo" name="email" type="text" value="" size="25" maxlength="30" pattern="[A-Za-z]{3}" placeholder="ejemplo@um.es" ></td>
+              </tr>
+              <tr>
+                <td width="40"></td>
+                <td width="40"></td>
+                <td width="80"><label form="telefono">Tel&eacute;fono:</label></td>
+                <td width="240" style="padding-right:20px;"><input class="cuadrorojo" name="telefono" type="text" value="" size="25" maxlength="12" pattern="^+34[0-9]{9}" placeholder="+34123456789" ></td>
+              </tr>
+              <tr>
+                <td width="40"></td>
+                <td width="40"></td>
+                <td width="80"><label form="pais">Pa&iacute;s</label></td>
+                <td width="240" style="padding-right:20px;"><input class="cuadrorojo" name="pais" type="text" value="" size="25" maxlength="15" pattern="^+34[0-9]{9}" placeholder="+34123456789" ></td>
+              </tr>
+          
+              <tr><td style="padding-bottom:20px;" colspan="4"></td></tr>
+
+              <tr>
+                <td width="40"></td>
+                <td colspan="3">Datos de tarjeta de cr&eacute;dito o d&eacute;bito</td>
+              </tr>
+
+              <tr><td style="padding-bottom:20px;" colspan="4"></td></tr>
+
+              <tr>
+                <td width="40"></td>
+                <td width="40"></td>
+                <td width="80"><label form="ntarjeta">N&uacute;mero:</label></td>
+                <td width="240" style="padding-right:20px;"><input class="cuadrorojo" name="ntarjeta" type="text" value="" size="25" maxlength="19" placeholder="Ej: 5555-4444-3333-2222" ></td>
+              </tr>
+              <tr>
+                <td width="40"></td>
+                <td width="40"></td>
+                <td width="80"><label form="nombretar">Nombre:</label></td>
+                <td width="240" style="padding-right:20px;"><input class="cuadrorojo" name="nombretar" type="text" value="" size="25" maxlength="30" pattern="[A-Za-z]{3}" placeholder="Nombre que figura en la tarjeta" ></td>
+              </tr>
+
+              <tr><td style="padding-bottom:20px;" colspan="4"></td></tr>
+              <tr><td style="padding-left:30px;" colspan="4">------------------------------------</td></tr>
+              
+              <tr>
+                <td width="40"></td>
+                <td colspan="3"><input type="submit" value="Confirmar pedido"></td>
+              </tr>
+
+              <tr><td style="padding-bottom:35px;" colspan="4"></td></tr>
+           
+          </table>
+        </form>  
+    </body >
+</html>

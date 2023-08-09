@@ -1,0 +1,543 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<relacionsql numrelacion="R7.2">
+	<configdb>
+		<hostdb>localhost</hostdb>
+		<esquemadb>tienda</esquemadb>
+		<usuariodb>tienda</usuariodb>
+		<passdb>tienda</passdb>
+	</configdb>
+	<student>
+		<alumno>GOMEZ GARCIA JONATAN</alumno>
+		<finalgrade>0</finalgrade>
+		<totalgrade>0</totalgrade>
+		<maxgrade>0</maxgrade>
+	</student>
+	<consultas>
+		<query id="1" peso="1">
+			<descq>Devuelve una lista con el nombre del producto, precio y nombre de fabricante de todos los productos de la base de datos</descq>
+			<resppropo>
+			select producto.nombre, precio, fabricante.nombre
+			from fabricante, producto
+            where codigo_fabricante = fabricante.codigo;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="2" peso="1">
+			<descq>Devuelve una lista con el nombre del producto, precio y nombre de fabricante de todos los productos de la base de datos. 
+			Ordene el resultado por el nombre del fabricante, por orden alfabético</descq>
+			<resppropo>
+			select producto.nombre, precio, fabricante.nombre
+			from fabricante, producto
+            where codigo_fabricante = fabricante.codigo
+			order by fabricante.nombre asc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="3" peso="1">
+			<descq>Devuelve una lista con el código del producto, nombre del producto, código del fabricante y nombre del fabricante, 
+			de todos los productos de la base de datos</descq>
+			<resppropo>
+			select producto.codigo, producto.nombre, fabricante.codigo, fabricante.nombre
+			from producto, fabricante
+			where codigo_fabricante = fabricante.codigo;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="4" peso="2">
+			<descq>Devuelve el nombre del producto, su precio y el nombre de su fabricante, del producto más barato.</descq>
+			<resppropo>
+			select producto.nombre, precio, fabricante.nombre
+			from producto, fabricante
+			where codigo_fabricante = fabricante.codigo
+			order by precio asc
+			limit 1;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="5" peso="2">
+			<descq>Devuelve el nombre del producto, su precio y el nombre de su fabricante, del producto más caro.</descq>
+			<resppropo>
+			select producto.nombre, precio, fabricante.nombre
+			from producto, fabricante
+			where codigo_fabricante = fabricante.codigo
+			order by precio desc
+			limit 1;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="6" peso="1">
+			<descq>Devuelve una lista de todos los productos del fabricante Lenovo</descq>
+			<resppropo>
+			select producto.*
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+            where fabricante.nombre = "Lenovo";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="7" peso="2">
+			<descq>Devuelve una lista de todos los productos del fabricante Crucial que tengan un precio mayor que 200€</descq>
+			<resppropo>
+			<![CDATA[ select producto.*
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+            where fabricante.nombre = "Crucial"
+            and precio > 200; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="8" peso="2">
+			<descq>Devuelve un listado con todos los productos de los fabricantes Asus, Hewlett-Packard y Seagate. Sin utilizar el operador IN.</descq>
+			<resppropo>
+			select producto.*
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+            where fabricante.nombre = "Asus"
+            or fabricante.nombre = "Hewlett-Packard"
+            or fabricante.nombre = "Seagate";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="9" peso="2">
+			<descq>Devuelve un listado con todos los productos de los fabricantes Asus, Hewlett-Packardy Seagate. Utilizando el operador IN.</descq>
+			<resppropo>
+			select producto.*
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+            where fabricante.nombre in ("Asus", "Hewlett-Packard", "Seagate");
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="10" peso="2">
+			<descq>Devuelve un listado con el nombre y el precio de todos los productos de los fabricantes cuyo nombre termine por la vocal e.</descq>
+			<resppropo>
+			select producto.nombre, precio
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+            where fabricante.nombre like "%e";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="11" peso="2">
+			<descq>Devuelve un listado con el nombre y el precio de todos los productos cuyo nombre de fabricante contenga el carácter w en su nombre.</descq>
+			<resppropo>
+			select producto.nombre, precio
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+            where fabricante.nombre like "%w%";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="12" peso="2">
+			<descq>Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos los productos que tengan un precio mayor o igual
+			a 180€. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente)
+			</descq>
+			<resppropo>
+			<![CDATA[ select producto.nombre, precio, fabricante.nombre
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+            where precio >= 180
+            order by precio desc, producto.nombre asc; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="13" peso="2">
+			<descq>Devuelve un listado con el código y el nombre de fabricante, solamente de aquellos fabricantes que tienen productos asociados en la base de datos.</descq>
+			<resppropo>
+			select fabricante.codigo, fabricante.nombre
+			from fabricante
+			inner join producto on codigo_fabricante = fabricante.codigo
+            group by fabricante.codigo;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="14" peso="1">
+			<descq>Calcula el número total de productos que hay en la tabla productos.</descq>
+			<resppropo>
+			select count(codigo)
+			from producto;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+				<query id="15" peso="1">
+			<descq>Calcula el número total de fabricantes que hay en la tabla fabricante.</descq>
+			<resppropo>
+			select count(codigo)
+			from fabricante;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="16" peso="1">
+			<descq>Calcula el número de valores distintos de código de fabricante aparecen en la tabla productos</descq>
+			<resppropo>
+			select count(distinct (codigo_fabricante))
+			from producto;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="17" peso="1">
+			<descq>Calcula la media del precio de todos los productos.</descq>
+			<resppropo>
+			select avg(precio)
+			from producto;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="18" peso="1">
+			<descq>Calcula el precio más barato de todos los productos.</descq>
+			<resppropo>
+			select min(precio)
+			from producto;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="19" peso="1">
+			<descq>Calcula el precio más caro de todos los productos.</descq>
+			<resppropo>
+			select max(precio)
+			from producto;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="20" peso="2">
+			<descq>Lista el nombre y el precio del producto más barato.</descq>
+			<resppropo>
+			select nombre, precio
+			from producto
+            order by precio asc
+            limit 1;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="21" peso="2">
+			<descq>Lista el nombre y el precio del producto más caro.</descq>
+			<resppropo>
+			select nombre, precio
+			from producto
+            order by precio desc
+            limit 1;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="22" peso="1">
+			<descq>Calcula la suma de los precios de todos los productos.</descq>
+			<resppropo>
+			select sum(precio)
+			from producto;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="23" peso="2">
+			<descq>Calcula el número de productos que tiene el fabricante Asus.</descq>
+			<resppropo>
+			select count(*)
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+			where fabricante.nombre = "Asus";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="24" peso="2">
+			<descq>Calcula la media del precio de todos los productos del fabricante Asus.</descq>
+			<resppropo>
+			select avg(precio)
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+			where fabricante.nombre = "Asus";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="25" peso="2">
+			<descq>Calcula el precio más barato de todos los productos del fabricante Asus.</descq>
+			<resppropo>
+			select min(precio)
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+			where fabricante.nombre = "Asus";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="26" peso="2">
+			<descq>Calcula el precio más caro de todos los productos del fabricante Asus.</descq>
+			<resppropo>
+			select max(precio)
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+			where fabricante.nombre = "Asus";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="27" peso="2">
+			<descq>Calcula la suma de todos los productos del fabricante Asus.</descq>
+			<resppropo>
+			select sum(precio)
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+			where fabricante.nombre = "Asus";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="28" peso="2">
+			<descq>Muestra el precio máximo, precio mínimo, precio medio y el número total de productos que tiene el fabricante Crucial</descq>
+			<resppropo>
+			select max(precio), min(precio), avg(precio), count(*)
+			from producto
+			inner join fabricante on codigo_fabricante = fabricante.codigo
+			where fabricante.nombre = "Crucial";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="29" peso="4">
+			<descq>Muestra el número total de productos que tiene cada uno de los fabricantes. El resultado mostrará dos columnas, una con el nombre del fabricante y otra con el número de productos que tiene.
+			Ordene el resultado descendentemente por el número de productos.
+			</descq>
+			<resppropo>
+			select fabricante.nombre, count(producto.codigo)
+			from producto
+            inner join fabricante on codigo_fabricante = fabricante.codigo
+			group by fabricante.codigo
+			order by count(producto.codigo) desc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="30" peso="4">
+			<descq>Muestra el precio máximo, precio mínimo y precio medio de los productos de cada uno de los fabricantes. 
+			El resultado mostrará el nombre del fabricante junto con los datos que se solicitan.
+</descq>
+			<resppropo>
+			select max(precio), min(precio), avg(precio), fabricante.nombre
+			from producto
+            inner join fabricante on codigo_fabricante = fabricante.codigo
+			group by fabricante.nombre;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="31" peso="4">
+			<descq>Muestra el precio máximo, precio mínimo, precio medio y el número total de productos de los fabricantes que tienen un precio medio superior a 200€. 
+			No es necesario mostrar el nombre del fabricante, con el código del fabricante es suficiente.</descq>
+			<resppropo>
+			<![CDATA[ select max(precio), min(precio), avg(precio), count(codigo_fabricante), codigo_fabricante
+			from producto
+            group by codigo_fabricante
+			having avg(precio) > 200; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="32" peso="4">
+			<descq> Muestra el nombre de cada fabricante, junto con el precio máximo, precio mínimo, precio medio y el número total de productos
+			de los fabricantes que tienen un precio medio superior a 200€. Es necesario mostrar el nombre del fabricante.
+</descq>
+			<resppropo>
+			<![CDATA[ select fabricante.nombre, max(precio), min(precio), avg(precio), count(codigo_fabricante)
+			from producto
+            inner join fabricante on codigo_fabricante = fabricante.codigo
+            group by codigo_fabricante
+            having avg(precio) > 200; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="33" peso="2">
+			<descq>Calcula el número de productos que tienen un precio mayor o igual a 180€.</descq>
+			<resppropo>
+			<![CDATA[ select count(*)
+			from producto
+            where precio >= 180; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="34" peso="4">
+			<descq>Calcula el número de productos que tiene cada fabricante con un precio mayor o igual a 180€</descq>
+			<resppropo>
+			<![CDATA[ select count(*)
+			from producto
+            where precio >= 180
+            group by codigo_fabricante; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="35" peso="4">
+			<descq>Lista el precio medio los productos de cada fabricante, mostrando solamente el código del fabricante.</descq>
+			<resppropo>
+			select avg(precio), codigo_fabricante
+			from producto
+            group by codigo_fabricante;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="36" peso="4">
+			<descq>Lista el precio medio los productos de cada fabricante, mostrando solamente el nombre del fabricante. </descq>
+			<resppropo>
+			select avg(precio), fabricante.nombre
+			from producto
+            inner join fabricante on codigo_fabricante = fabricante.codigo
+            group by codigo_fabricante;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="37" peso="2">
+			<descq>Lista los nombres de los fabricantes cuyos productos tienen un precio medio mayor o igual a 150€.</descq>
+			<resppropo>
+			<![CDATA[ select fabricante.nombre
+			from producto
+            inner join fabricante on codigo_fabricante = fabricante.codigo
+			group by codigo_fabricante
+            having avg(precio) >= 150; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="38" peso="3">
+			<descq>Devuelve un listado con los nombres de los fabricantes que tienen 2 o más productos.</descq>
+			<resppropo>
+			<![CDATA[ select fabricante.nombre
+			from producto
+            inner join fabricante on codigo_fabricante = fabricante.codigo
+            group by codigo_fabricante
+            having count(codigo_fabricante) >= 2; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="39" peso="2">
+			<descq>Devuelve un listado con los nombres de los fabricantes y el número de productos que tiene cada uno con un precio superior o igual a 220 €.
+			No es necesario mostrar el nombre de los fabricantes que no tienen productos que cumplan la condición.</descq>
+			<resppropo>
+			<![CDATA[ select fabricante.nombre, count(codigo_fabricante)
+			from producto
+            inner join fabricante on codigo_fabricante = fabricante.codigo
+            where precio >= 220
+            group by codigo_fabricante; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="40" peso="4">
+			<descq>Devuelve un listado con los nombres de los fabricantes donde la suma del precio de todos sus productos es superior a 1000 €.</descq>
+			<resppropo>
+			<![CDATA[ select fabricante.nombre
+			from producto
+            inner join fabricante on codigo_fabricante = fabricante.codigo
+            group by codigo_fabricante
+            having sum(precio) > 1000; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+	</consultas> 
+</relacionsql>

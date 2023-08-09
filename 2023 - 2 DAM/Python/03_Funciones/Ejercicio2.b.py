@@ -1,0 +1,1 @@
+print("En serio... no voy a cambiar el programa para que empiece a contar los primos desde el 1...")

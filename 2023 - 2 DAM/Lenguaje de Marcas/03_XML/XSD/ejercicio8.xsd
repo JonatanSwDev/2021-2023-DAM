@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="discos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="grupo" type="grupoType" maxOccurs="unbounded"/>
+        <xs:element name="disco" type="discoType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="grupoType">
+    <xs:sequence>
+      <xs:element name="nombre" type="stringType"/>
+        <xs:element name="miembro" type="stringType" maxOccurs="unbounded"/>
+        <xs:element name="nacionalidad" type="stringType" minOccurs="0"/>
+        <xs:choice>
+          <xs:group ref="grupo2" minOccurs="0"/>
+          <xs:group ref="grupo3" minOccurs="0"/>
+        </xs:choice>
+
+    </xs:sequence>
+    <xs:attribute name="nom" type="stringType" use="required"></xs:attribute>
+  </xs:complexType>
+
+  <xs:group name="grupo2">
+    <xs:sequence>
+        <xs:element name="web" type="webType"/>
+        <xs:element name="email" type="emailType"/>
+      </xs:sequence>
+  </xs:group>
+
+  <xs:group name="grupo3">
+    <xs:sequence>
+        <xs:element name="calle" type="stringType"/>
+        <xs:element name="localidad" type="stringType"/>
+      </xs:sequence>
+  </xs:group>
+
+  <xs:simpleType name="webType">
+    <xs:restriction base="stringType">
+      <xs:pattern value=".*ponprecioamimusica\.org.*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="emailType">
+    <xs:restriction base="stringType">
+      <xs:pattern value=".*ponprecioamimusica\.org"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="discoType">
+    <xs:sequence>
+      <xs:element name="interprete" type="interpreteType"/>
+      <xs:element name="titulo" type="stringType"/>
+      <xs:element name="discografica" type="discograficaType" minOccurs="0" default="CBS"/>
+      <xs:element name="anio" type="anioType"/>
+      <xs:element name="stock" type="stockType"/>
+    </xs:sequence>
+    <xs:attribute name="precio" type="decimal2Valores"/>
+  </xs:complexType>
+
+  <xs:complexType name="interpreteType">
+    <xs:attribute name="nom" type="stringType"/>
+  </xs:complexType>
+
+  <xs:simpleType name="discograficaType">
+    <xs:restriction base="stringType">
+      <xs:enumeration value="Sony"/>
+      <xs:enumeration value="CBS"/>
+      <xs:enumeration value="SIRE"/>
+      <xs:enumeration value="OTRAS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="decimal2Valores">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stockType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stringType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="anioType">
+    <xs:simpleContent>
+        <xs:extension base="xs:gYear">
+            <xs:attribute name="mes" type="mesType" use="optional"/>
+        </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="mesType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="enero"/>
+        <xs:enumeration value="febrero"/>
+        <xs:enumeration value="marzo"/>
+        <xs:enumeration value="abril"/>
+        <xs:enumeration value="mayo"/>
+        <xs:enumeration value="junio"/>
+        <xs:enumeration value="julio"/>
+        <xs:enumeration value="agosto"/>
+        <xs:enumeration value="septiembre"/>
+        <xs:enumeration value="octubre"/>
+        <xs:enumeration value="noviembre"/>
+        <xs:enumeration value="diciembre"/>
+    </xs:restriction>
+</xs:simpleType>
+</xs:schema>

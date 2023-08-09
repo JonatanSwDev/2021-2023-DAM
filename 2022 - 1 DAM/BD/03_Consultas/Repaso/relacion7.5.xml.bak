@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<relacionsql numrelacion="R7.5">
+	<configdb>
+		<hostdb>localhost</hostdb>
+		<esquemadb>jardineria</esquemadb>
+		<usuariodb>jardineria</usuariodb>
+		<passdb>jardineria</passdb>
+	</configdb>
+	<student>
+		<alumno>Pon aquí tu apellido1 apellido2, y nombre en mayúsculas</alumno>
+		<finalgrade>0</finalgrade>
+		<totalgrade>0</totalgrade>
+		<maxgrade>0</maxgrade>
+	</student>
+	<consultas>
+		<query id="1" peso="1">
+			<descq>Devuelve un listado con el nombre, apellidos y email de los empleados 
+			cuyo jefe tiene un código de jefe igual a 7</descq>
+			<resppropo>
+			select nombre, apellido1, apellido2, email
+from empleado
+where codigo_jefe = 7;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="2" peso="1">
+			<descq>Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no sean representantes de ventas
+			</descq>
+			<resppropo>
+			select nombre, apellido1, apellido2, puesto
+from empleado
+where puesto != "Representante Ventas";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="3" peso="1">
+			<descq>Devuelve un listado con los distintos estados por los que puede pasar un pedido.</descq>
+			<resppropo>
+			select distinct(estado)
+from pedido;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="4" peso="2">
+			<descq>Devuelve un listado con el código de cliente de aquellos clientes que realizaron algún pago en 2008. 
+			Tenga en cuenta que deberá eliminar aquellos códigos de cliente que aparezcan repetidos. </descq>
+			<resppropo>
+			select distinct(codigo_cliente)
+from pago
+where year(fecha_pago) = 2008;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="5" peso="2">
+			<descq>Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega 
+			de los pedidos que no han sido entregados a tiempo.</descq>
+			<resppropo>
+			select codigo_pedido, codigo_cliente, fecha_esperada, fecha_entrega
+from pedido
+where fecha_entrega > fecha_esperada;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="6" peso="2">
+			<descq>Devuelve un listado con todos los productos que pertenecen a la gama Ornamentales 
+			y que tienen más de 100 unidades en stock.
+			El listado deberá estar ordenado por su precio de venta, mostrando en primer lugar los de mayor precio.</descq>
+			<resppropo>
+			select *
+from producto
+where gama = "Ornamentales"
+and cantidad_en_stock > 100
+order by precio_venta desc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="7" peso="2">
+			<descq>Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas</descq>
+			<resppropo>
+			select nombre_cliente, nombre, apellido1, apellido2
+from cliente inner join empleado on(codigo_empleado_rep_ventas=empleado.codigo_empleado);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="8" peso="2">
+			<descq>Devuelve el nombre de los clientes que no hayan hecho pagos 
+			y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante</descq>
+			<resppropo>
+			select nombre_cliente, empleado.nombre, oficina.ciudad
+from cliente
+			inner join empleado on(codigo_empleado_rep_ventas=empleado.codigo_empleado)
+			join oficina using(codigo_oficina)
+where cliente.codigo_cliente not in (select codigo_cliente from pago);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="9" peso="2">
+			<descq>Devuelve el nombre de los clientes y el nombre de sus representantes junto 
+			con la ciudad de la oficina a la que pertenece el representante</descq>
+			<resppropo>
+			select nombre_cliente, empleado.nombre, oficina.ciudad
+from cliente
+			inner join empleado on(codigo_empleado_rep_ventas=empleado.codigo_empleado)
+			join oficina using(codigo_oficina)
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="10" peso="3">
+			<descq>Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes como nom_jefe</descq>
+			<resppropo>
+			select a.nombre, b.nombre as nom_jefe
+from empleado a
+			inner join empleado b on (b.codigo_empleado=a.codigo_jefe);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="11" peso="4">
+			<descq>Devuelve un listado que muestre el codigo de cliente, nombre cliente, nombre contacto 
+			y apellido de los clientes que han realizado algún pago 
+			y adicionalmente de los que han realizado algún pedido(con repetidos) 
+			y utilizando ambas reuniones externas. 
+			Se quiere saber también las fecha de pago y las fechas de pedido en su caso</descq>
+			<resppropo>
+			select codigo_cliente, nombre_cliente, nombre_contacto, apellido_contacto, fecha_pago, fecha_pedido
+from cliente 	right join pedido using(codigo_cliente)
+				left join pago using(codigo_cliente);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="12" peso="4">
+			<descq>
+			Devuelve codigo de oficina, ciudad y paias de las oficinas donde no trabajan ninguno de los empleados
+			que hayan sido los representantes de ventas de algún cliente que haya realizado la compra 
+			de algún producto de la gama Frutales.
+			</descq>
+			<resppropo>
+			select codigo_oficina, oficina.ciudad, oficina.pais
+from oficina
+where codigo_oficina not in(select codigo_oficina from empleado
+								where codigo_empleado in(select codigo_empleado_rep_ventas from cliente
+									where codigo_cliente in(select codigo_cliente from pedido
+										where codigo_pedido in(select codigo_pedido from detalle_pedido
+											where codigo_producto in(select codigo_producto from producto
+												where gama = "Frutales")))));
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="13" peso="3">
+			<descq>Devuelve un listado con codigo de cliente, nombre de cliente, nombre de contacto y apellido 
+			de los clientes que han realizado algún pedido pero no han realizado ningún pago.</descq>
+			<resppropo>
+			select codigo_cliente, nombre_cliente, nombre_contacto, apellido_contacto
+from cliente
+where codigo_cliente in (select codigo_cliente from pedido)
+and codigo_cliente not in (select codigo_cliente from pago);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="14" peso="2">
+			<descq>Cuál fue el pago medio en 2009? (como pagomedio)</descq>
+			<resppropo>
+			select avg(total) as pagomedio
+from pago
+where year(fecha_pago) = 2009;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="15" peso="2">
+			<descq>¿Cuántos pedidos hay en cada estado? muestre numero de pedidos como num_pedidos y estado. 
+			Ordena el resultado de forma descendente por el número de pedidos.</descq>
+			<resppropo>
+			select count(*) as num_pedidos, estado
+from pedido
+group by estado
+order by num_pedidos desc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="16" peso="2">
+			<descq>Calcula el precio de venta del producto más caro (precio_venta_max) y 
+			más barato (precio_venta_min) en una misma consulta .</descq>
+			<resppropo>
+			select max(precio_venta) as precio_venta_max, min(precio_venta) as precio_venta_min
+from producto;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="17" peso="3">
+			<descq>Devuelve el nombre de los representantes de ventas y el número de clientes al que atiende cada uno.</descq>
+			<resppropo>
+			select empleado.nombre, count(cliente.codigo_cliente)
+from empleado inner join cliente on(codigo_empleado=codigo_empleado_rep_ventas)
+group by empleado.nombre, empleado.codigo_empleado;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="18" peso="4">
+			<descq>Calcula la fecha del primer y último pago realizado por cada uno de los clientes. 
+			El listado deberá mostrar el nombre cliente, nombre contacto y apellido de cada cliente
+			y despues fecha_primer_pago y fecha_ultimo_pago.</descq>
+			<resppropo>
+			select nombre_cliente, nombre_contacto, apellido_contacto, min(fecha_pago) as fecha_primer_pago, max(fecha_pago) as fecha_ultimo_pago
+from cliente join pago using(codigo_cliente)
+group by cliente.codigo_cliente, nombre_cliente, nombre_contacto, apellido_contacto;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="19" peso="3">
+			<descq>Calcula el número de productos diferentes que hay en cada uno de los pedidos. 
+			Indica codigo de pedido y num_productos</descq>
+			<resppropo>
+			select pedido.codigo_pedido, count(distinct(codigo_producto)) as num_productos
+from pedido join detalle_pedido using(codigo_pedido)
+group by pedido.codigo_pedido;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="20" peso="4">
+			<descq>Lista las ventas totales de los productos que hayan facturado más de 3000 euros. 
+			Se mostrará el nombre, unidades vendidas, total facturado y total facturado con impuestos (21% IVA).</descq>
+			<resppropo>
+			select producto.nombre, sum(cantidad) as "unidades vendidas", sum(cantidad*precio_unidad) as 'total facturado', sum(cantidad*precio_unidad*1.21) as 'total facturado con impuestos' 
+from producto join detalle_pedido using(codigo_producto)
+group by producto.codigo_producto, producto.nombre
+having sum(cantidad*precio_unidad) > 3000;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="21" peso="4">
+			<descq>Devuelve el nombre del producto del que se han vendido más unidades. 
+			(Tenga en cuenta que tendrá que calcular cuál es el número total de unidades que se han vendido de 
+			cada producto a partir de los datos de la tabla detalle_pedido)</descq>
+			<resppropo>
+			select nombre
+from producto join (select codigo_producto, sum(cantidad) as cantidad from detalle_pedido
+group by codigo_producto) t2 using(codigo_producto)
+where cantidad >=All(select sum(cantidad) from detalle_pedido group by codigo_producto);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="22" peso="3">
+			<descq>Devuelve el nombre, apellidos, puesto y teléfono de la oficina de aquellos empleados 
+			que no sean representante de ventas de ningún cliente.</descq>
+			<resppropo>
+			select nombre, apellido1, apellido2, puesto, oficina.telefono
+			from oficina
+			join empleado using(codigo_oficina)
+			where codigo_empleado not in(select codigo_empleado_rep_ventas from cliente);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="23" peso="4">
+			<descq>Devuelve el listado de clientes indicando el nombre del cliente y cuántos pedidos(num_pedidos)
+			ha realizado. Tenga en cuenta que pueden existir clientes que no han realizado ningún pedido. 
+			Estos últimos deberán aparecer en el listado con num_pedidos a null</descq>
+			<resppropo>
+			select nombre_cliente, num_pedidos
+			from cliente 
+            left join (select codigo_cliente, count(codigo_pedido) as num_pedidos from pedido group by codigo_cliente) t2 using(codigo_cliente);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="24" peso="4">
+			<descq>Devuelve para cada cliente el codigo cliente, nombre cliente, nombre contacto, 
+			apellido, codigo de pedido, fecha de pedido e importe de pedido (como importe) 
+			del pedido de mayor importe para ese cliente. (el importe se deberá calcular en base a detalle pedido)
+			</descq>
+			<resppropo>
+		select codigo_cliente, nombre_cliente, nombre_contacto, apellido_contacto, codigo_pedido, fecha_pedido, sum(cantidad*precio_unidad) as importe
+from cliente c1	join pedido using(codigo_cliente)
+				join detalle_pedido using(codigo_pedido)
+group by codigo_cliente, nombre_cliente, nombre_contacto, apellido_contacto, codigo_pedido, fecha_pedido
+having importe >=all	(select sum(cantidad*precio_unidad)
+							from cliente c2 join pedido using(codigo_cliente)
+											join detalle_pedido using(codigo_pedido)
+							where c1.codigo_cliente=c2.codigo_cliente
+                            group by codigo_pedido);
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="25" peso="4">
+			<descq>Devuelve para cada empleado el codigo empleado, nombre empleado, apellidos, codigo de pedido, fecha de pedido e importe de pedido (como importe) del pedido de mayor importe para los pedidos realizados por los clientes del que es representante ese empleado (el importe se deberá calcular en base a detalle pedido</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+	</consultas> 
+</relacionsql>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE urbanizacion SYSTEM "Ejercicio30.dtd">
+<urbanizacion>
+ <casa portal="1-A">
+   <cocina>25m.</cocina>
+   <aseo1>10m</aseo1>
+   <aseo2>15m</aseo2>
+   <salon>35m</salon>
+   <dormitorio1>18m</dormitorio1>
+   <dormitorio2>24m</dormitorio2>
+ </casa>
+ <casa portal="1-B">
+   <cocina>25m.</cocina>
+   <aseo1>10m</aseo1>
+   <aseo2>15m</aseo2>
+   <salon>35m</salon>
+   <dormitorio1>18m</dormitorio1>
+ </casa>
+</urbanizacion>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pedidos SYSTEM "Ejercicio35.dtd">
+<pedidos>
+    <pedido>
+        <empresa cif="A12345678" sector="informatica" actividad="desarrollo software">Empresa 1</empresa>
+        <producto  numproducto="P1">Producto 1</producto>
+        <producto numproducto="P2">Producto 2</producto>
+        <fecha>01/01/2022</fecha>
+    </pedido>
+    <pedido>
+        <cliente nif="A87654321">Cliente 1</cliente>
+        <producto numproducto="P3">Producto 3</producto>
+        <producto numproducto="P4">Producto 4</producto>
+        <fecha>02/01/2022</fecha>
+        <factura numfactura="F001" cliente="A12345678" productos="P3 P4">
+            <emisor>&MiEmpresa;</emisor>
+            <total>200</total>
+            <fecha>03/01/2022</fecha>
+        </factura>
+    </pedido>
+</pedidos>

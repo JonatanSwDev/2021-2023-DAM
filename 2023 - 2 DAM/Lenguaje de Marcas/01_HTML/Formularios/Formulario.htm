@@ -1,0 +1,100 @@
+<!--Jonatan Gomez Garcia-->
+<html>
+    <head><title>Formulario verde</title>
+        <meta charset="utf-8"/>
+     <h1>Ejemplo de formulario</h1>
+     <style>
+        p {
+            margin-left:40px;
+        }
+     </style>
+    </head>
+    <body>
+      <form method="get" autocomplete>
+      <fieldset tittle="datos personales">
+        <legend>datos personales</legend>
+        <p>
+        <label form="nombre">Nombre:</label>
+        <input name="nombre" type="text" value="" size="20" maxlength="15" pattern="[A-Za-z]{3}">
+        <label form="1apellido">Primer apellido:</label>
+        <input name="1apellido" type="text" value="" size="25" maxlength="15" pattern="[A-Za-z]{3}">
+        <label form="2apellido">Segundo apellido:</label>
+        <input name="2apellido" type="text" value="" size="25" maxlength="15" pattern="[A-Za-z]{3}">
+        </p>
+        <p>
+            <label form="Direccion">Direcci&oacute;n:</label>
+            <input name="Direccion" type="text" value="" size="50" maxlength="50" pattern="[A-Za-z1-9]{3}" placeholder="calle o plaza, numero y piso">
+        </p>
+        <p>
+            <label form="email">email:</label>
+            <input name="email" type="text" value="" size="30" maxlength="50" >
+        </p>
+        <p>
+            <label form="contraseña">contraseña:</label>
+            <input name="contraseña" type="password" value="" size="30" maxlength="50" pattern="[A-Za-z1-9]{3}">
+        </p>
+        <p>
+            <label form="sexo">sexo:</label><br/>
+            <input name="sexo" type="radio" value="Varon"> Varon<br/>
+            <input name="sexo" type="radio" value="Mujer"> Mujer
+        </p>
+      </fieldset>
+
+      <br/>
+
+      <fieldset tittle="Nivel de estudios e intereses">
+        <legend>Nivel de estudios e intereses</legend>
+
+        <p>
+            <label form="estudios">Nivel de estudios:</label><br/>
+            <input name="estudios" type="radio" value="certificado escolar" checked> Certificado escolar<br/>
+            <input name="estudios" type="radio" value="graduado en eso"> Graduado en E.S.O.<br/>
+            <input name="estudios" type="radio" value="bachiller formacion profesional"> Bachiller - Formaci&oacute;n profesional<br/>
+            <input name="estudios" type="radio" value="diplomado"> Diplomado<br/>
+            <input name="estudios" type="radio" value="licenciado o doctorado"> Licenciado o Doctorado<br/>
+        </p>
+        <p>
+            <label form="articulos">Recibir art&iacute;culos sobre los siguientes temas:</label><br/>
+            <input type="checkbox" name="articulos1" value="musica"> M&uacute;sica<br/>
+            <input type="checkbox" name="articulos2" value="deportes"> Deportes<br/>
+            <input type="checkbox" name="articulos3" value="cine"> Cine<br/>
+            <input type="checkbox" name="articulos4" value="libros"> Libros<br/>
+            <input type="checkbox" name="articulos5" value="ciencia"> Ciencia
+        </p>
+      </fieldset>
+      
+      <br/>
+
+      <fieldset tittle="Datos sobre la revista">
+        <legend>Datos sobre la revista</legend>
+        <p>
+            <label form="frecuencia">Frecuencia con la que se recibir&acute; la revista:</label><br/>
+            <select name="frecuencia">
+                <option value="semanal">Semanal</option>
+                <option value="mensual">Mensual</option>
+                <option value="trimestral">Trimestral</option>
+                <option value="anual">Anual</option>
+              </select>
+        </p>
+        
+        <p>puedes mandar tu art&iacute;culo sobre cualquier tema de los que tratamos. Nosotros lo valoraremos para que pueda ser publicado.</p>
+        <p><label form="article">mandar art&iacute;culo: </label><input type="file" name="article"></p>
+        <p>
+            <label form="comentario">Si deseas mandar s&iacute;mplemente una opini&oacute;n o comentario escr&iacute;belo aqu&iacute;</label><br/>   
+            <textarea name="comentario" rows="5" cols="40" placeholder="Escribe tu comentario:"></textarea>
+        </p>
+    </fieldset>
+
+    <fieldset tittle="Empezar de nuevo">
+        <legend>Empezar de nuevo</legend>
+        <p>todos los datos del formulario y empezar de nuevo: <button type="reset">borrar todo</button></p>
+    </fieldset>
+
+    <fieldset tittle="enviar">
+        <legend>enviar</legend>
+        <p>Enviar formulario por correo electr&oacute;nico. Al pulsar en el bot&oacute;n se abrir&aacute; la p&aacute;gina de env&iacute;o de correo: en esa p&aacute;gina pulsa enviar:</p>
+        <p><input type="submit" value="enviar por correo"></p>
+    </fieldset>
+        </form>
+    </body >
+</html>

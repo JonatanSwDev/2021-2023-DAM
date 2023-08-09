@@ -1,0 +1,142 @@
+-- Jonatan Gomez Garcia Practica 11
+
+use comercial;
+
+-- 1. Hallar todos los datos de los clientes mayores de 20 años a fecha de hoy
+select *
+from cliente c1
+where datediff(now(), fecha_nac)/365 >= 20;
+
+-- Hallar todos los datos de los clientes mayores de 35 años que residan en un distrito de codigo postal 30001
+select *
+from cliente c1
+where datediff(now(), fecha_nac)/365 >= 35
+and cod_postal = '30001';
+
+-- 3. Hallar el nº de clientes que residen en un cada uno de los distritos (e.d que tengan
+-- mismo código postal). En la salida indicar el ćodigo postal y el nº de clientes
+-- correspondiente
+select cod_postal, count(dni)
+from cliente
+group by cod_postal;
+
+-- 4. Hallar los diferentes códigos postales donde tenemos tanto clientes como comerciales
+select distinct(cod_postal) 
+from cliente
+union
+select distinct(cod_postal)
+from comercial;
+
+-- 5. Hallar la media de los stocks de artículos. (solo con dos decimales)
+select truncate(avg(stock), 2)
+from articulo;
+
+-- 6. Hallar la media del precio unitario de los artículos que se hayan vendido en 2014
+-- (que aparezcan en albaranes de 2014) (solo con dos decimales)
+select avg(precio)
+from articulo
+where exists(select cod_art from albaran
+			where year(fecha_alb) = 2014);
+			
+-- 7. Hallar el código y descripción de aquellos artículos que están por encima del
+-- precio medio de todos los artículos
+select cod_art, descripcion
+from articulo
+where precio > (select avg(precio) from articulo);
+
+-- 8. Hallar el valor total actual del almacen. (lo que valen todos los artículos que
+-- tenemos en stock almacenados)
+select sum(precio*stock)
+from articulo;
+
+-- 9. Hallar el valor de la facturación total en 2012
+select sum(importe)
+from factura
+where year(fecha_fac) = 2012;
+
+-- 10. Hallar el valor de la facturación total en cada distrito (codigo_postal de cliente).
+-- Incluye en la salida el código postal y la facturación total para ese distrito
+select cod_postal, sum(importe)
+from cliente join factura using(dni)
+group by cod_postal;
+
+-- 11. Hallar (en una solo consulta) el valor de la facturación total por cada año. Incluye
+-- el valor total y el año en el resultado de la consulta
+select sum(importe), year(fecha_fac)
+from factura
+group by year(fecha_fac);
+
+-- 12. Hallar (para cada factura) el nº de albaranes que la componen. Incluye el cod_fact
+-- y el nº de albaranes en el resultado de la consulta
+select cod_fact, count(cod_alb)
+from albaran
+group by cod_fact;
+
+-- 13. Hallar todos los datos de la factura de mayor importe
+select *
+from factura
+where importe =(select max(importe) from factura);
+
+-- 14. Hallar los cod_fact e importe de las facturas correspondientes a los tres mayores importes
+select cod_fac, importe
+from factura
+order by importe desc
+limit 3;
+
+-- 15. Hallar todos los datos de tres facturas de mayor importe
+select *
+from factura
+order by importe desc
+limit 3;
+
+-- 16. Hallar todos los datos de los artículos cuyo media de ventas para ese articulo
+-- (media del nº de unidades vendidas en cada albaran para ese artículo) suponga
+-- 40% o más del stock actual para ese artículo
+select *
+from articulo
+where stock*0.4 < (select avg(cantidad) 
+					from albaran 
+					where albaran.cod_art=articulo.cod_art
+                    group by albaran.cod_art);
+					
+-- 17. Hallar todos los datos de los albaranes correspondientes a los tres mayores
+-- importes de albaranes (Ayuda: hay que calcular el importe de cada albaran ya que
+-- no esta en la tabla) (puedes utilizar una tabla temporal(TEMPORARY) para
+-- resultados intermedios)
+drop table if exists t_albaran;
+
+create temporary table t_albaran
+select cod_art, sum(cantidad*precio) as precio
+from articulo join albaran using(cod_art)
+group by cod_art;
+	
+select cod_alb, cod_fact, fecha_alb, albaran.cod_art, cantidad, precio
+from albaran join t_albaran using(cod_art)
+order by cod_alb;
+
+-- 18. Hallar, para cada cliente, el dni junto con su facturación total.
+select cliente.dni, sum(importe)
+from cliente left join factura on(cliente.dni=factura.dni)
+group by dni;
+
+-- 19. Hallar para cada comercial, el importe total de la facturación originada por los
+-- clientes que ha visitado alguna vez. Incluye dni de comercial y facturación de sus
+-- clientes. (Atención a no sumar repetidas veces importes de facturas. Puedes
+-- utilizar una tabla temporal TEMPORARY para resultados intermedios)
+drop table if exists t_client_fac;
+
+create temporary table t_client_fac
+select cliente.dni as dni, sum(importe) as imp_tot
+from cliente left join factura on(cliente.dni=factura.dni)
+group by cliente.dni;
+
+select dni_comercial, sum(imp_tot)
+from visita
+inner join t_client_fac on(dni_cli = dni)
+group by dni_comercial, dni_cli;
+
+-- 20.Hallar la consulta para averiguar si existe algún artículo que se haya vendido a
+-- todos los clientes. Si existe indicar código de artículo y descripción.
+select cod_art, descripcion
+from articulo join factura using(cod_art)
+where exists(select dni from cliente;)

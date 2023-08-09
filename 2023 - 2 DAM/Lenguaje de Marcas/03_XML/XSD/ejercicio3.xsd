@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="heladeria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="helado" type="heladoType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="heladoType">
+    <xs:sequence>
+        
+        <xs:choice>
+            <xs:element name="chocolate" type="saborType"/>  
+            <xs:element name="fresa" type="saborType"/>
+        </xs:choice>
+
+        <xs:choice>
+            <xs:element name="turron" type="saborType"/>
+            <xs:element name="vainilla" type="saborType"/>
+            <xs:element name="nata" type="saborType"/>
+        </xs:choice>
+
+    </xs:sequence>
+    <xs:attribute name="fabricación" type="xs:date"/>
+  </xs:complexType>
+
+  <xs:simpleType name="saborType">
+    <xs:restriction base="xs:integer">
+
+        <xs:minInclusive value = "0"/>
+        <xs:maxInclusive value="1000"/>
+        
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

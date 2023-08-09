@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margen_botones">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/butMostrarLugares"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margen_botones_land"
+                android:text="@string/butMostrarLugares" />
+
+            <Button
+                android:id="@+id/butPreferencias"
+                android:layout_margin="@dimen/margen_botones_land"
+                android:text="@string/butPreferencias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/butAcerca"
+                android:layout_marginHorizontal="@dimen/margen_botones_land"
+                android:text="@string/butAcerca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="lanzarAcercaDe"/>
+
+            <Button
+                android:id="@+id/butSalir"
+                android:layout_marginHorizontal="@dimen/margen_botones_land"
+                android:text="@string/butSalir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

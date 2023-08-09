@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Musica</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="channel_name">Reproductor</string>
+    <string name="channel_description">Cancion Actual</string>
+    <string name="acerca_de">Acerca De</string>
+    <string name="random">Cancion Actual</string>
+    <string name="repetir">Cancion Actual</string>
+    <string name="title_activity_caratula">Musica</string>
+
+    <string name="acerca_de_text">
+                            \nAl ejecutar el programa te encuentras en la caratula, puedes manejar el
+                            reproductor desde esos controles
+                            \nEsta guay el tema de las caratulas, porque te muestra la cancion actual y la siguiente
+                            con un formato redondo. Puedes encontrar la dependencia para implementarlo en gradles
+                            y el ejemplo de implementacion en el layout de la caratula
+                            \nSi le das a la flecha de atras iras a la lista de reproduccion
+                            \nEn la lista de reproduccion puedes encontrar un MediaController pulsando
+                            el boton del fab
+                            \nSi quieres volver a la caratula, manten pulsado el boton fab
+                            \nEl menu es compartido, por lo que las opciones de aleatorio y repetir
+                            se guardan en ambas partes
+                            \nTambien tienes un sistema de notificaciones totalmente funcional
+                            \nTiene implementado un BroadcastReceiver, lo que hara que la cancion se pause
+                            en caso de llamada entrante o saliente y vuelva a reproducirse una vez termine
+                            la llamada o quieras grabar con la camara del telefono
+                            </string>
+</resources>

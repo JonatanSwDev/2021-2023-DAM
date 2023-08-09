@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">p03CalculadoraBasica</string>
+    <string name="but0">0</string>
+    <string name="butPunto">.</string>
+    <string name="butIgual">=</string>
+    <string name="but1">1</string>
+    <string name="but2">2</string>
+    <string name="but3">3</string>
+    <string name="but4">4</string>
+    <string name="but5">5</string>
+    <string name="but6">6</string>
+    <string name="but7">7</string>
+    <string name="but8">8</string>
+    <string name="but9">9</string>
+    <string name="butE">E</string>
+    <string name="butC">C</string>
+    <string name="butAC">AC</string>
+    <string name="butResto">%</string>
+    <string name="butDividir">/</string>
+    <string name="butMultiplicar">X</string>
+    <string name="butResta">-</string>
+    <string name="butSuma">+</string>
+
+
+
+
+</resources>

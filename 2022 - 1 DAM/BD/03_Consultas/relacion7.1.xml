@@ -1,0 +1,710 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<relacionsql numrelacion="R7.1">
+	<configdb>
+		<hostdb>localhost</hostdb>
+		<esquemadb>farmacia</esquemadb>
+		<usuariodb>farmacia</usuariodb>
+		<passdb>farmacia</passdb>
+	</configdb>
+	<student>
+		<alumno>GOMEZ GARCIA JONATAN</alumno>
+		<finalgrade>0</finalgrade>
+		<totalgrade>0</totalgrade>
+		<maxgrade>0</maxgrade>
+	</student>
+	<consultas>
+		<query id="1" peso="1">
+			<descq>Mostrar la descripción (esquema) de la tabla fármaco</descq>
+			<resppropo>
+			desc farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="2" peso="1">
+			<descq>Mostrar toda la información (todos los campos del fármaco) con código de producto 1</descq>
+			<resppropo>
+			select * from farmacos
+			where cod_prod = 1;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="3" peso="1">
+			<descq>Mostrar el código, nombre y titular del fármaco con código 1</descq>
+			<resppropo>
+			select cod_prod, nombre, titular
+			from farmacos
+			where cod_prod = 1;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="4" peso="1">
+			<descq>Mostrar el número total de fármacos en la tabla fármaco</descq>
+			<resppropo>
+			select count(cod_prod)
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="5" peso="1">
+			<descq>Mostrar el nombre de todos los titulares de fármacos</descq>
+			<resppropo>
+			select titular
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="6" peso="1">
+			<descq>Mostrar el nombre de todos los titulares de fármacos sin repeticiones</descq>
+			<resppropo>
+			select distinct titular
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="7" peso="1">
+			<descq>Mostrar el número total de titurales diferentes en la tabla fármaco</descq>
+			<resppropo>
+			select count(distinct titular)
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="8" peso="1">
+			<descq>Hallar el ḿayor código de producto</descq>
+			<resppropo>
+			select max(cod_prod)
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="9" peso="1">
+			<descq>Hallar el menor código de producto</descq>
+			<resppropo>
+			select min(cod_prod)
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="10" peso="1">
+			<descq>Hallar el num máximo de fracciones existente</descq>
+			<resppropo>
+			select max(fracciones)
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="11" peso="1">
+			<descq>Hallar el num mínimo de fracciones existente</descq>
+			<resppropo>
+			select min(fracciones)
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="12" peso="1">
+			<descq>Hallar el num medio de fracciones</descq>
+			<resppropo>
+			select avg(fracciones)
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="13" peso="1">
+			<descq>Mostrar las distintas formas de presentaciones de fármacos (sin repeticiones)</descq>
+			<resppropo>
+			select distinct presentacion
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="14" peso="1">
+			<descq>Mostrar el num de formas de presentaciones distintas</descq>
+			<resppropo>
+			select count(distinct presentacion)
+			from farmacos;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="15" peso="1">
+			<descq>Mostrar el nombre de todos los titulares ordenados de menor a mayor</descq>
+			<resppropo>
+			select titular
+			from farmacos order by titular asc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="16" peso="1">
+			<descq>Mostrar el nombre de todos los titulares (sin repeticiones) ordenados de mayor a menor</descq>
+			<resppropo>
+			select distinct(titular)
+			from farmacos order by titular desc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="17" peso="1">
+			<descq>Mostrar el código de producto y nombre de todos los farmacos pertenecientes al titular FARMADUAL ordenado por nombre de producto</descq>
+			<resppropo>
+			select cod_prod, nombre
+			from farmacos 
+            where titular = "FARMADUAL"
+			order by nombre asc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="18" peso="1">
+			<descq>Mostrar el codigo de producto y nombre de todos los farmacos pertenecientes al titular PFIZER ord
+enado inversamente por nombre de producto</descq>
+			<resppropo>
+			select cod_prod, nombre
+			from farmacos 
+            where titular = "PFIZER"
+			order by nombre desc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="19" peso="1">
+			<descq>Mostrar el num total de farmacos pertenecientes al titular PFIZER</descq>
+			<resppropo>
+			select count(cod_prod)
+			from farmacos
+			where titular = "PFIZER";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="20" peso="1">
+			<descq>Hallar el num ḿáximo de fracciones en el que presenta sus farmacos el titular PFIZER</descq>
+			<resppropo>
+			select max(fracciones)
+			from farmacos
+			where titular = "PFIZER";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="21" peso="1">
+			<descq>Hallar el num mínimo de fracciones en el que presenta sus farmacos el titular PFIZER</descq>
+			<resppropo>
+			select min(fracciones)
+			from farmacos
+			where titular = "PFIZER";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="22" peso="1">
+			<descq>Hallar el num medio de fracciones en el que presenta sus farmacos el titular PFIZER</descq>
+			<resppropo>
+			select avg(fracciones)
+			from farmacos
+			where titular = "PFIZER";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="23" peso="2">
+			<descq>Mostrar el codigo de producto, nombre y forma simple de los farmacos de PFIZER que se presente en forma simple de Tableta. 
+Ordenados por nombre</descq>
+			<resppropo>
+			select cod_prod, nombre, forma_simpl
+			from farmacos 
+            where titular = "PFIZER"
+			and forma_simpl = "Tableta"
+			order by nombre asc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="24" peso="2">
+			<descq>Mostrar el num medio de fracciones de aquellos farmacos de PFIZER que se presenten en forma simple de Tableta</descq>
+			<resppropo>
+			select avg(fracciones)
+			from farmacos 
+            where titular = "PFIZER"
+			and forma_simpl = "Tableta";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="25" peso="2">
+			<descq>Mostrar el num máximo de fracciones de aquellos farmacos de PFIZER que se presenten en forma simple de Tableta o de Capsula</descq>
+			<resppropo>
+			select max(fracciones)
+			from farmacos 
+            where titular = "PFIZER"
+			and (forma_simpl = "Tableta"
+			or forma_simpl = "Capsula");
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="26" peso="2">
+			<descq>Mostrar el num medio de fracciones de aquellos farmacos de PFIZER que se presenten en forma simple de Capsul</descq>
+			<resppropo>
+			select avg(fracciones)
+			from farmacos 
+            where titular = "PFIZER"
+			and forma_simpl = "Capsula";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="27" peso="3">
+			<descq>Mostrar el numero de farmacos total sumando los de PFIZER, BAYER y ROCHE que se presenten en forma simple de Tableta o de Capsula</descq>
+			<resppropo>
+			select count(cod_prod)
+			from farmacos 
+            WHERE titular IN("PFIZER", "BAYER", "ROCHE")
+			and forma_simpl IN("Tableta", "Capsula");
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="28" peso="3">
+			<descq>Mostrar el numero de fracciones máximas de los farmacos presentados en forma simple de Capsula y forma de Cápsula de los titulares PFIZER o BAYER</descq>
+			<resppropo>
+			select max(fracciones)
+			from farmacos 
+            WHERE titular IN("PFIZER", "BAYER")
+			and forma_simpl = "Capsula"
+			and forma = "Cápsula";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="29" peso="3">
+			<descq>Mostrar el numero de fracciones medias de aquellos farmacos de forma simple Parche o Tableta, de titular BAYER o ROCHE y de num fracciones menor 100)</descq>
+			<resppropo>
+			<![CDATA[ select avg(fracciones)
+			from farmacos 
+            WHERE titular IN("ROCHE", "BAYER")
+			and forma_simpl IN ("Parche", "Tableta")
+			and fracciones < 100; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="30" peso="3">
+			<descq>Mostrar el numero medio de fracciones de los farmacos que se presenten en fracciones entre 100 y 500, que sean de ROCHE o PFIZER, cuyo
+cod_prod sea superior a 1000, y su forma_simple sea una de los tres siguientes: Parche, Tableta o Capsula</descq>
+			<resppropo>
+			<![CDATA[ select avg(fracciones)
+			from farmacos 
+            WHERE titular IN("ROCHE", "PFIZER")
+			and forma_simpl IN ("Parche", "Tableta", "Capsula")
+			and cod_prod > 1000
+			and (fracciones between 100 and 500); ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="31" peso="2">
+			<descq>Hallar los nombres de producto y la fecha de expiración de registro 
+cuya fecha de expiración de registro sea posterior a hoy</descq>
+			<resppropo>
+			<!-- La fecga de expiracion no aparece en la tabla, por lo que entiendo que "fecha de expiracion de registro"
+			se refiere al atributo "fecha_reg"-->
+			<![CDATA[ select nombre, fecha_reg
+			from farmacos 
+            WHERE fecha_reg > now(); ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="32" peso="2">
+			<descq> Hallar los nombres de farmaco y la fecha de expiración de registro cuya fecha de expiración de registro ocurra en el 2015, ordenalo por fecha de expiracion de registro</descq>
+			<resppropo>
+			<!--select nombre, fecha_reg
+			from farmacos 
+            WHERE fecha_reg  between "2015-01-01" and "2015-12-31"
+            order by fecha_reg asc; --><!-- Ya lo había hecho con between de primeras-->
+			<![CDATA[ select nombre, fecha_reg
+			from farmacos 
+            WHERE fecha_reg >= "2015-01-01" and fecha_reg <= "2015-12-31"
+            order by fecha_reg asc; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="32.2" peso="2">
+			<descq>Idem a 32 pero con BETWEEN (inclusivo!!!)</descq>
+			<resppropo>
+			select nombre, fecha_reg
+			from farmacos 
+            WHERE fecha_reg between "2015-01-01" and "2015-12-31"
+            order by fecha_reg asc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="33" peso="3">
+			<descq>Hallar el num de farmacos cuya fecha de registro expira en 2015 o 2017</descq>
+			<resppropo>
+			<![CDATA[ select count(cod_prod)
+			from farmacos 
+            where (fecha_reg > "2015-01-01" and fecha_reg <= "2015-12-31")
+            or (fecha_reg >= "2017-01-01" and  fecha_reg <= "2017-12-31"); ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="34" peso="2">
+			<descq>Hallar el num de farmacos cuya fecha de registro ha expirado ya</descq>
+			<resppropo>
+			<![CDATA[ select count(cod_prod)
+			from farmacos 
+            where fecha_reg <= now(); ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="35" peso="2">
+			<descq>Hallar el num de farmacos de PFIZER cuya fecha de registro expiro en 2014</descq>
+			<resppropo>
+			select count(cod_prod)
+			from farmacos 
+            WHERE titular = "PFIZER"
+			and (fecha_reg between "2014-01-01" and "2014-12-31");
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="36" peso="4">
+			<descq> Mostrar el numero medio de fracciones de los farmacos que se presenten en fracciones entre 10 y 1000, que sean de ROCHE o PFIZER,
+			cuyo cod_prod sea superior a 1000, y su forma_simple sea una de los tres siguientes: Parche,
+			Tableta o Capsula y que su fecha de expiracion de registro haya ocurrido en 2012 o 2014</descq>
+			<resppropo>
+			<![CDATA[ select avg(fracciones)
+			from farmacos
+			where (fracciones between 10 and 1000)
+			and titular in ("ROCHE", "PFIZER")
+			and cod_prod > 1000
+			and forma_simpl in ("Parche", "Tableta", "Capsula") 
+			and ((fecha_reg between "2012-01-01" and "2012-12-31")
+			or (fecha_reg between "2014-01-01" and "2014-12-31")); ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="37" peso="2">
+			<descq>Hallar la fecha máxima de expiración de registro de entre  los titulares ROCHE, BAYER o PFIZER</descq>
+			<resppropo>
+			select max(fecha_reg)
+			from farmacos
+			where titular in ("ROCHE", "BAYER", "PFIZER");
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="38" peso="3">
+			<descq>Hallar el num de farmacos totales de ROCHE, BAYER o PFIZER cuya fecha de registro este vigente Resuelto con operador in
+			que permite comparar en igualación un campo con varios valores ocpionales</descq>
+			<resppropo>
+			<![CDATA[ select count(cod_prod)
+			from farmacos
+			where titular in ("ROCHE", "BAYER", "PFIZER")
+			and fecha_reg > now(); ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="39" peso="2">
+			<descq>Hallar el codigo producto, nombre de farmaco, concentracion y titular de aquellos farmacos que en su concentración venga en mg</descq>
+			<resppropo>
+			select cod_prod, nombre, concentracion, titular
+			from farmacos
+			where concentracion like "%mg";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="40" peso="4">
+			<descq>Mostrar el numero medio de fracciones de los farmacos que se presenten en fracciones entre 10 y 2000, que sean de ROCHE o BAYER,
+			cuyo cod_prod esté entre 1000 y 25000, y su forma_simple sea una de los tres siguientes: Parche, Tableta o Capsula
+			y que su fecha de expiracion de registro haya ocurrido en 2011 o 2012 y que su concentración venga en mg</descq>
+			<resppropo>
+			select avg(fracciones)
+			from farmacos
+			where (fracciones between 10 and 2000)
+			and titular in ("ROCHE", "BAYER")
+			and (cod_prod between 1000 and 25000)
+			and forma_simpl in ("Parche", "Tableta", "Capsula") 
+			and (fecha_reg between "2011-01-01" and "2012-12-31")
+			and concentracion like "%mg";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="41" peso="2">
+			<descq> Hallar el nombre de los titulares, sin repeticiones, que tengan farmacos cuya 
+fecha de registro venza en el año 2015</descq>
+			<resppropo>
+			select distinct titular
+			from farmacos
+			where fecha_reg between "2015-01-01" and "2015-12-31";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="42" peso="1">
+			<descq>Hallar el nombre de los titulares, sin repeticiones, que tengan 
+farmacos cuya fecha de resgitro haya vencido en 2011, 2012 o 2013</descq>
+			<resppropo>
+			select distinct titular
+			from farmacos
+			where fecha_reg between "2011-01-01" and "2013-12-31";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="43" peso="2">
+			<descq>Hallar el nombre de los titulares, sin repeticiones, que tengan farmacos cuya fecha de registro haya vencido o venza en los años 2012,2013,2014 o 2015</descq>
+			<resppropo>
+			<![CDATA[ select distinct titular
+			from farmacos
+			where fecha_reg <= now()
+			or (fecha_reg between "2012-01-01" and "2015-12-31"); ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="44" peso="2">
+			<descq> Hallar el num de fracciones totales en un almacen que tenga 1 envase de cada producto del catalogo</descq>
+			<resppropo>
+			<!-- CUIDADOOO!!!! HAY UN ENVASE EN BLISTER QUE NO TIENE LA ABREVIACION DEL PUNTO!!
+			SI SOLO QUEREMOS VER AQUELLOS PRODUCTOS QUE ESTEN ABREVIADOS O SIMPLEMENTE NO QUEREMOS
+			TENER EN CUENTA EN ENVASE EN BLISTER COLOCAR LA SIGUIENTE SENTENCIA:
+			
+			select sum(fracciones)
+			from farmacos
+			where presentacion like "Env.%"; -->
+			
+			<!-- EN EL CASO CONTRARIO, SI QUEREMOS TENER EN CUENTA EL ENVASE BLISCTER COLOCAR LA SIGUIENTE!!!!! -->
+			<!-- Está correcto, yo mismo he hecho la suma -->
+			select sum(fracciones)
+			from farmacos
+			where presentacion like "Env%";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="45" peso="3">
+			<descq>Hallar el num de fracciones totales en un almacen que tenga 1 envase de cada producto de las empresas ROCHE,BAYER y PFIZER</descq>
+			<resppropo>
+			<!-- CUIDADOOO!!!! HAY UN ENVASE EN BLISTER QUE NO TIENE LA ABREVIACION DEL PUNTO!!
+			SI SOLO QUEREMOS VER AQUELLOS PRODUCTOS QUE ESTEN ABREVIADOS O SIMPLEMENTE NO QUEREMOS
+			TENER EN CUENTA EN ENVASE EN BLISTER COLOCAR LA SIGUIENTE SENTENCIA:
+			
+			select sum(fracciones)
+			from farmacos 
+			where titular in ("ROCHE", "PFIZER", "BAYER")
+			and presentacion like "Env.%"; -->
+			
+			<!-- EN EL CASO CONTRARIO, SI QUEREMOS TENER EN CUENTA EL ENVASE BLISCTER COLOCAR LA SIGUIENTE!!!!! -->
+			select sum(fracciones)
+			from farmacos 
+			where titular in ("ROCHE", "PFIZER", "BAYER")
+			and presentacion like "Env%";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="46" peso="2">
+			<descq>Hallar el num de fracciones totales en un almacen que tenga 1 envase de cada producto 
+de las empresas ROCHE,BAYER y que no hayan vencido a fecha de hoy</descq>
+			<resppropo>
+			<!-- El resultado es null debido a que la base de datos no contiene ningún fármaco que a fecha de hoy no haya expirado procedente de las
+			dos empresas que pide el enunciado, sin embargo si pusieramos también PFIZER si que nos devolvería un dato:
+			select sum(fracciones)
+			from farmacos 
+			where titular in ("ROCHE", "BAYER", "PFIZER")
+			and fecha_reg > now();
+			-->
+			<![CDATA[ select sum(fracciones)
+			from farmacos 
+			where titular in ("ROCHE", "BAYER")
+			and fecha_reg > now(); ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="47" peso="2">
+			<descq>Hallar el nombre de titular y nombre de farmaco de los farmacos que vienen en fracciones de menos de 10 ordenado por titular y farmaco</descq>
+			<resppropo>
+			<![CDATA[ select titular, nombre
+			from farmacos
+			where fracciones < 10
+			order by titular, nombre asc; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="48" peso="2">
+			<descq>Hallar el código de fármaco y nombre de fármaco y fecha de vencimiento de registro de los farmacos que venzan en el año 2015
+			ordenados por fecha de vencimiento de registro y nombre de farmaco</descq>
+			<resppropo>
+			<!-- Selecciono el orden de los atributos a mostrar de esa forma con el objetivo de que sea más legible al ojo humano -->
+			select fecha_reg, nombre, cod_prod
+			from farmacos
+			where fecha_reg between"2015-01-01" and "2015-12-31"
+			order by fecha_reg, nombre asc;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="49" peso="3">
+			<descq>Hallar el nombre de fármaco y titular de aquellos fármacos de BAYER y PFIZER que no hayan vencido y que presenten en su nombre el prefijo AMOX
+			presentados en fracciones mayores que 5 ordenados por titular y nombre</descq>
+			<resppropo>
+			<!-- Cosas a tener en cuenta aqui:
+			No existen farmacos que empiezen por AMOX y pertenezcan ni a BAYER ni a PFIZER.
+			Solo existe un medicamento que no haya caducado, y no empieza por AMOX 
+			En el resultado no se muestra nada -->
+			<![CDATA[ select nombre, titular
+			from farmacos
+			where titular in ("BAYER", "PFIZER")
+			and fecha_reg > now()
+			and nombre like "AMOX%"
+			and fracciones > 5
+			order by titular, nombre asc; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="50" peso="4">
+			<descq>Hallar las distintas fechas de vencimiento de registro de aquellos fármacos de BAYER,PFIZER y ROCHE de aquellos fármacos que son presentados
+			en fracciones menores o iguales a 100, que no hayan vencido todavía o de haberlo hecho lo hicieron en 2012 o 2014</descq>
+			<resppropo>
+			<![CDATA[ select fecha_reg
+			from farmacos
+			where titular in("BAYER","PFIZER", "ROCHE")
+			and fracciones <= 100
+			and (fecha_reg > now()
+			or (fecha_reg between "2012-01-01" and "2012-12-31")
+			or (fecha_reg between "2014-01-01" and "2014-12-31")); ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+	</consultas> 
+</relacionsql>

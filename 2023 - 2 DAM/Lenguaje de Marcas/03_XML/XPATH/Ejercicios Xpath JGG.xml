@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejercicios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="EjerciciosXpathXquery.xsd">
+	<ejercicio numero="n1">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten los nodos denominacion y precio de todos los productos</enunciado>
+		<query>collection("/db/BDProductosXML")//produc/denominacion | //produc/precio</query>
+	</ejercicio> 
+
+	<ejercicio numero="n2">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten los nodos de los productos que sean placas base</enunciado>
+		<query>collection("/db/BDProductosXML")//produc/denominacion[contains(text(), "Placa Base")]/..</query>
+	</ejercicio>
+
+	<ejercicio numero="n3">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten los nodos de los productos con precio mayor de 60€ y de la zona 20</enunciado>
+		<query>collection("/db/BDProductosXML")//produc[precio > 60 and cod_zona=20]</query>
+	</ejercicio>
+
+	<ejercicio numero="n4">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten el numero de productos que sean memorias y de la zona 10</enunciado>
+		<query>collection("/db/BDProductosXML")/productos/count(produc[denominacion/contains(text(),"Memoria") and cod_zona=10])</query>
+	</ejercicio>
+
+	<ejercicio numero="n5">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten la media de precio de los micros</enunciado>
+		<query>collection("/db/BDProductosXML")/productos/avg(produc[contains(denominacion/text(),"Micro")]/precio)</query>
+	</ejercicio>
+
+	<ejercicio numero="n6">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten los datos de los productos cuyo stock minimo sea mayor que su stock actual </enunciado>
+		<query>collection("/db/BDProductosXML")//produc[number(stock_minimo) > number(stock_actual)]</query>
+	</ejercicio>
+
+	<ejercicio numero="n7">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten el nombre de producto y el precio de aquellos cuyo stock minimo sea mayor que su stock actual y sean de la zona 20 </enunciado>
+		<query>
+			collection("/db/BDProductosXML")//produc[number(stock_minimo) > number(stock_actual) and cod_zona=20]
+			/concat("Nombre: ", denominacion, ", Precio: ", precio)
+		</query>
+	</ejercicio>
+
+	<ejercicio numero="n8">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten el producto mas caro </enunciado>
+		<query>collection("/db/BDProductosXML")//produc[precio = max(precio)]</query>
+	</ejercicio>
+
+	<ejercicio numero="n9">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten el producto mas barato de la zona 20 </enunciado>
+		<query>collection("/db/BDProductosXML")//produc[cod_zona=20 and precio = min(precio)]</query>
+	</ejercicio>
+
+	<ejercicio numero="n10">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten el producto mas caro de la zona 10</enunciado>
+		<query>collection("/db/BDProductosXML")//produc[cod_zona=10 and precio = max(precio)]/precio/node()</query>
+	</ejercicio>
+
+	<ejercicio numero="n11">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten los datos de las cuentas bancarias cuyo stipo sea AHORRO</enunciado>
+		<query>collection("/db/BDPruebas/")//cuenta[@tipo = "AHORRO"]</query>
+	</ejercicio>
+
+	<ejercicio numero="n12">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten por cada sucursal la concatenacion de su codigo y el numero de cuentas del tipo ahorro que tiene</enunciado>
+		<query>collection("/db/BDPruebas/")//sucursal/concat("Codigo: ", @codigo, ", nº Cuentas Ahorro: ", count(cuenta[@tipo = "AHORRO"]))</query>
+	</ejercicio>
+
+	<ejercicio numero="n13">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten las cuentas de tipo PENSIONES de la sucrursal con codigo SUC3</enunciado>
+		<query>collection("/db/BDPruebas/")//sucursal[@codigo = "SUC3"]/cuenta[@tipo = "PENSIONES"]</query>
+	</ejercicio>
+
+	<ejercicio numero="n14">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten por cada sucursal la concatenacion de los datos codigo sucursal, director y total saldo haber</enunciado>
+		<query>collection("/db/BDPruebas/")//sucursal/concat("Codigo: ", @codigo, ", Director: ", director, ", Total saldohaber: ", sum(cuenta/saldohaber))</query>
+	</ejercicio>
+
+	<ejercicio numero="n15">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten todos los elementos de las sucursales con mas de 3 cuentas</enunciado>
+		<query>collection("/db/BDPruebas/")//sucursal[count(cuenta) > 3]/node()</query>
+	</ejercicio>
+
+	<ejercicio numero="n16">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten todos los elementos de las sucursales con mas de 3 cuentas del tipo AHORRO</enunciado>
+		<query>collection("/db/BDPruebas/")//sucursal[count(cuenta[@tipo = "AHORRO"]) > 3]/*</query>
+	</ejercicio>
+
+	<ejercicio numero="n17">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten los nodos del director y la poblacion de las sucursales con mas de 3 cuentas</enunciado>
+		<query>collection("/db/BDPruebas/")//sucursal[count(cuenta) > 3]/director | //sucursal[count(cuenta) > 3]/poblacion</query>
+	</ejercicio>
+
+	<ejercicio numero="n18">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten el numero de sucursales cuya poblacion sea Madrid</enunciado>
+		<query>collection("/db/BDPruebas/")/sucursales/count(sucursal[poblacion = "Madrid"])</query>
+	</ejercicio>
+
+	<ejercicio numero="n19">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten por cada sucursal, su codigo y la suma de las aportaciones de las cuentas del tipo PENSIONES</enunciado>
+		<query>collection("/db/BDPruebas")//sucursales/sucursal/concat(./@codigo, " - ",
+				sum(/cuenta[./@tipo="PENSIONES"]/aportacion));</query>
+	</ejercicio>
+
+	<ejercicio numero="n20">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten los nodos numero de cuenta, nombre de cuenta y el saldo haber de las cuentas con saldo haber mayor de 10000</enunciado>
+		<query>
+			collection("/db/BDPruebas")//sucursales/sucursal/cuenta[sum(/saldohaber) >
+			10000]/nombre | /sucursales/sucursal/cuenta[sum(/saldohaber) > 10000]/numero |
+			/sucursales/sucursal/cuenta[sum(/saldohaber) > 10000]/saldohaber;
+		</query>
+	</ejercicio>
+
+	<ejercicio numero="n21">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Obten por cada sucrusal con mas de 3 cuentas del tipo AHORRO, su codigo y la suma del saldo debe de esas cuentas</enunciado>
+		<query>
+			collection("/db/BDPruebas")//sucursales/sucursal[count(cuenta[./@tipo="AHORRO"])
+			> 3]/concat(./@codigo, " - ", sum(/cuenta/saldodebe));
+		</query>
+	</ejercicio>
+
+
+	
+</ejercicios>

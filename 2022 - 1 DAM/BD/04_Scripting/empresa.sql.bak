@@ -1,0 +1,173 @@
+DROP DATABASE IF EXISTS empresa;
+
+CREATE DATABASE empresa character set utf8mb4; 
+
+USE empresa;
+
+drop table if exists cliente; 
+
+create table cliente (
+dni varchar(9) not null comment 'DNI del cliente',
+nombre varchar(50) not null comment 'Nombre del cliente',
+apellidos varchar(100) not null comment 'Apellidos del cliente',
+fecha_nac date comment 'Fecha de nacimiento del cliente',
+direccion varchar(200) not null comment 'Direccion completa del cliente',
+cod_postal varchar(5) comment 'Codigo postal de residencia',
+primary key(dni) comment 'primary key'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+drop table if exists articulo;
+
+create table articulo (
+cod_art varchar(8) not null comment 'Codigo de identificacion',
+descripcion varchar(200) not null comment 'Descripcion del articulo',
+precio double(8,2) not null comment 'Precio del articulo',
+stock int(7) default(100) not null comment 'Stock de existencias',
+primary key (cod_art) comment 'Primary key'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+drop table if exists factura;
+
+create table factura (
+cod_fac varchar(6) comment 'Codigo de identificacion',
+dni varchar(9) not null comment 'DNI del cliente (FK)',
+fecha_fac date not null comment 'Fecha de realización de la factura',
+importe double(8,2) not null comment 'Importe a pagar',
+primary key(cod_fac, dni, fecha_fac) comment 'Primary key que identifica univoca la factura',
+foreign key (dni) references cliente(dni) on update cascade
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+drop table if exists albaran;
+
+create table albaran (
+cod_alb varchar(6) not null comment 'Codigo de identificacion',
+cod_fac varchar(6) not null comment 'Codigo de factura (FK)',
+fecha_alb date not null comment 'Fecha de creacion del albaran',
+cod_art varchar(8) not null comment 'Codigo del articulo (FK)',
+cantidad int (7) not null,
+primary key (cod_alb,cod_fac,fecha_alb,cod_art) comment 'Primary key que identifica univoca el albaran',
+foreign key (cod_fac) references factura(cod_fac) on update cascade,
+foreign key (cod_art) references articulo(cod_art) on update cascade
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+drop table if exists comercial;
+
+create table comercial (
+dni varchar(9) not null comment 'DNI del comercial',
+nombre varchar(50) not null comment 'Nombre del comercial',
+apellidos varchar (100) not null comment 'Apellidos del comercial',
+fecha_nac date not null comment 'Fecha de nacimiento del comercial',
+direccion varchar(200) not null comment 'Direccion completa del comercial',
+cod_postal varchar(5) not null comment 'Codigo postal asociado a la direccion',
+primary key(dni) comment 'Primary Key '
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+drop table if exists visita;
+
+create table visita (
+dni_cli varchar(9) not null comment 'DNI del cliente (FK)',
+dni_comercial varchar(9) not null comment 'DNI del comercial (FK)',
+fecha_visita date not null comment 'Fecha en la que ocurre la visita',
+primary key(dni_cli,dni_comercial,fecha_visita) comment 'Primary key que identifica univoca la visita',
+foreign key (dni_cli) references cliente(dni) on update cascade,
+foreign key (dni_comercial) references comercial(dni) on update cascade
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+insert into cliente
+values ('11111111A','Jose','Perez Perez','1974-08-01','C/Lepanto nº25 5º B','30001');
+insert into cliente
+values ('22222222B','Maria','Sanchez Sanchez','1985-03-25','C/Cervantes nº1 2ºA','30001');
+insert into cliente
+values ('33333333C','Pedro','Martinez Lopez','1995-06-10','C/Medina nº 15 1º C','30009');
+insert into cliente
+values ('44444444D','Juan','Flores Puerta','1991-04-12','C/Velazquez nº 20 4ºD','30008');
+
+
+insert into factura
+values ('F-0001','11111111A','2012-02-01',2800);
+insert into factura
+values ('F-0002','11111111A','2012-03-02',1500);
+insert into factura
+values ('F-0003','11111111A','2012-08-15',800);
+insert into factura
+values ('F-0004','22222222B','2013-09-20',3000);
+insert into factura
+values ('F-0005','22222222B','2013-10-02',900);
+insert into factura
+values ('F-0006','33333333C','2013-11-15',2500);
+insert into factura
+values ('F-0007','44444444D','2014-02-02',520);
+insert into factura
+values ('F-0008','44444444D','2015-02-04',2500);
+
+
+insert into articulo
+values ('ART-10','Elevador potencia',60,50);
+insert into articulo
+values ('ART-80','Condesador RJW',20,200);
+insert into articulo
+values ('ART-77','Placa Base ASUS 1155',50,35);
+insert into articulo
+values ('ART-100','SAI 1500VA-Salicru',500,8);
+insert into articulo
+values ('ART-101','Condesador RJW',20,200);
+insert into articulo
+values ('ART-120','Ventilador led enermax',10,55);
+insert into articulo
+values ('ART-250','Condesador RJW',250,40);
+
+
+insert into comercial
+values ('55555555E','Berta','Fuertes Ruiz','1980-08-01','C/Medina nº40 3º A','30008');
+insert into comercial
+values ('66666666F','Luis','Perez Martinez','1989-02-23','C/Picasso nº3 7C','30001');
+insert into comercial
+values ('77777777G','Ramon','Lucas Sanchez','1994-06-12','C/Nadal nº 14 1º D','30009');
+insert into comercial
+values ('88888888H','Juana','Luna Puertas','1991-05-15','C/Colon nº 20 4ºD','30007');
+
+
+insert into albaran
+values ('A-0001','F-0001','2012-01-10','ART-250',10);
+insert into albaran
+values ('A-0002','F-0001','2012-01-20','ART-120',30);
+insert into albaran
+values ('A-0003','F-0002','2012-02-15','ART-100',3);
+insert into albaran
+values ('A-0004','F-0003','2012-04-03','ART-80',25);
+insert into albaran
+values ('A-0005','F-0003','2012-06-15','ART-120',10);
+insert into albaran
+values ('A-0006','F-0003','2012-07-25','ART-77',4);
+insert into albaran
+values ('A-0007','F-0004','2013-09-15','ART-10',50);
+insert into albaran
+values ('A-0008','F-0005','2013-10-02','ART-10',15);
+insert into albaran
+values ('A-0009','F-0006','2013-11-15','ART-100',5);
+insert into albaran
+values ('A-0010','F-0007','2014-02-01','ART-101',1);
+insert into albaran
+values ('A-0011','F-0007','2014-02-02','ART-100',1);
+insert into albaran
+values ('A-0012','F-0008','2015-02-04','ART-100',5);
+
+
+insert into visita
+values ('11111111A','66666666F','2012-01-04');
+insert into visita
+values ('11111111A','66666666F','2012-01-06');
+insert into visita
+values ('22222222B','66666666F','2013-05-10');
+insert into visita
+values ('33333333C','55555555E','2014-07-12');
+insert into visita
+values ('33333333C','66666666F','2014-04-01');
+insert into visita
+values ('44444444D','77777777G','2012-02-07');
+insert into visita
+values ('44444444D','66666666F','2013-04-01');
+insert into visita
+values ('44444444D','55555555E','2014-04-15');

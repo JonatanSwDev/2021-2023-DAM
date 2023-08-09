@@ -1,0 +1,4 @@
+total 8
+drwxrwxr-x 3 app app 4096 oct  4 11:44 bin
+-rw-rw-r-- 1 app app    0 oct  4 12:22 salida.txt
+drwxrwxr-x 3 app app 4096 oct  4 11:44 src

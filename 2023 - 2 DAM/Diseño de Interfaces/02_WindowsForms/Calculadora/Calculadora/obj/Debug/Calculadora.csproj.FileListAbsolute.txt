@@ -1,0 +1,11 @@
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\bin\Debug\Calculadora.exe.config
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\bin\Debug\Calculadora.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\bin\Debug\Calculadora.pdb
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.AssemblyReference.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.SuggestedBindingRedirects.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\obj\Debug\Calculadora.Properties.Resources.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.GenerateResource.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\obj\Debug\Calculadora.csproj.CoreCompileInputs.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\obj\Debug\Calculadora.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\obj\Debug\Calculadora.pdb
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Calculadora\Calculadora\obj\Debug\Calculadora.DemoCalculator.resources

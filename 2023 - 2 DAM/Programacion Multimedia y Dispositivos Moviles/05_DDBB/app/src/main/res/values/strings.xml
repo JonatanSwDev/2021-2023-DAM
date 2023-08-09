@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BBDDJonatan</string>
+
+    <string name="butNuevo">Nuevo</string>
+    <string name="butEliminar">Eliminar</string>
+
+    <string name="txtUsuario">Usuario:</string>
+    <string name="txtNumero">Telefono:</string>
+    <string name="txtFecha">Fecha:</string>
+    <string name="butIngresar">Aceptar</string>
+    <string name="butVolver">Cancelar</string>
+    <string name="txtEnunciado">Nuevo contacto</string>
+
+    <string name="editNumero">Telefono</string>
+    <string name="editUsuario">Nombre</string>
+    <string name="editFecha">Fecha de nacimiento</string>
+
+
+    <string name="action_settings">Settings</string>
+</resources>

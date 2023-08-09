@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<relacionsql numrelacion="R7.3">
+	<configdb>
+		<hostdb>localhost</hostdb>
+		<esquemadb>empleados</esquemadb>
+		<usuariodb>empleados</usuariodb>
+		<passdb>empleados</passdb>
+	</configdb>
+	<student>
+		<alumno>Pon aquí tu apellido1 apellido2, y nombre en mayúsculas</alumno>
+		<finalgrade>0</finalgrade>
+		<totalgrade>0</totalgrade>
+		<maxgrade>0</maxgrade>
+	</student>
+	<consultas>
+		<query id="1" peso="1">
+			<descq>Lista el primer apellido de todos los empleados.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="2" peso="1">
+			<descq>Lista el primer apellido de los empleados eliminando los apellidos que estén repetidos.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="3" peso="1">
+			<descq>Lista todas las columnas de la tabla empleado</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="4" peso="2">
+			<descq>Lista el nombre y los apellidos de todos los empleados.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="5" peso="2">
+			<descq>Lista el código de los departamentos de los empleados que aparecen en la tabla empleado.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="6" peso="1">
+			<descq>Lista el código de los departamentos de los empleados que aparecen en la tabla empleado, eliminando los códigos que aparecen repetidos.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="7" peso="2">
+			<descq>Lista el nombre y apellidos de los empleados en una única columna llamada NAPELL.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="8" peso="2">
+			<descq>Lista el nombre y apellidos de los empleados en una única columna llamada NAPELL convirtiendo todos los caracteres en mayúscula</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="9" peso="2">
+			<descq>Lista el nombre y apellidos de los empleados en una única columna llamada NAPELL, convirtiendo todos los caracteres en minúscula.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="10" peso="2">
+			<descq>Lista el código de los empleados junto al nif, pero el nif deberá aparecer en dos columnas, una mostrará únicamente los dígitos del nif (DNIF) y la otra la letra (ENIF).</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="11" peso="2">
+			<descq>Lista el nombre de cada departamento y el valor del presupuesto actual del que dispone. Para calcular este dato tendrá que restar al valor del presupuesto inicial (columna presupuesto) los gastos que se han generado (columna gastos). Tenga en cuenta que en algunos casos pueden existir valores negativos. Utilice PRESACTUAL para la nueva columna columna que está calculando.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="12" peso="2">
+			<descq>
+				Idem a 11 pero ordenado por presupuesto actual de forma ascenddente
+			</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="13" peso="1">
+			<descq>Lista el nombre de todos los departamentos ordenados de forma ascendente.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="14" peso="1">
+			<descq>Lista el nombre de todos los departamentos ordenados de forma desscendente</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="15" peso="2">
+			<descq>Lista los apellidos y el nombre de todos los empleados, ordenados de forma alfabética tendiendo en cuenta en primer lugar sus apellidos y luego su nombre</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="16" peso="2">
+			<descq>Devuelve una lista con el nombre y el presupuesto, de los 3 departamentos que tienen mayor presupuesto</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="17" peso="2">
+			<descq>Devuelve una lista con el nombre y el presupuesto, de los 3 departamentos que tienen menor presupuesto</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="18" peso="2">
+			<descq>Devuelve una lista con el nombre y el gasto, de los 2 departamentos que tienen mayor gasto.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="19" peso="2">
+			<descq>Devuelve una lista con el nombre y el gasto, de los 2 departamentos que tienen menor gasto</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="20" peso="2">
+			<descq>Devuelve una lista con 5 filas a partir de la tercera fila de la tabla empleado. La tercera fila se debe incluir en la respuesta. La respuesta debe incluir todas las columnas de la tabla empleado.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="21" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos y el presupuesto, de aquellos que tienen un presupuesto mayor o igual a 150000 euros</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="22" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos y el gasto, de aquellos que tienen menos de 5000 euros de gastos.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="23" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos y el presupesto, de aquellos que tienen un presupuesto entre 100000 y 200000 euros. Sin utilizar el operador BETWEEN.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="24" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos que no tienen un presupuesto entre 100000 y 200000 euros. Sin utilizar el operador BETWEEN.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="25" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos que tienen un presupuesto entre 100000 y 200000 euros. Utilizando el operador BETWEEN.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="26" peso="2">
+			<descq>Devuelve una lista con el nombre de los departamentos que no tienen un presupuesto entre 100000 y 200000 euros. Utilizando el operador BETWEEN.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="27" peso="3">
+			<descq>Devuelve una lista con el nombre de los departamentos, gastos y presupuesto, de quellos departamentos donde los gastos sean mayores que el presupuesto del que disponen.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="28" peso="3">
+			<descq>Devuelve una lista con el nombre de los departamentos, gastos y presupuesto, de aquellos departamentos donde los gastos sean menores que el presupuesto del que disponen.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="29" peso="3">
+			<descq>Devuelve una lista con el nombre de los departamentos, gastos y presupuesto, de aquellos departamentos donde los gastos sean iguales al presupuesto del que disponen.
+			</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="30" peso="2">
+			<descq>Lista todos los datos de los empleados cuyo segundo apellido sea NULL.
+			</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="31" peso="2">
+			<descq>Lista todos los datos de los empleados cuyo segundo apellido no sea NULL.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="32" peso="2">
+			<descq> 
+				Lista todos los datos de los empleados cuyo segundo apellido sea López
+			</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="33" peso="2">
+			<descq>Lista todos los datos de los empleados cuyo segundo apellido sea Díaz o Moreno. Sin utilizar el operador IN.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="34" peso="4">
+			<descq>Lista todos los datos de los empleados cuyo segundo apellido sea Díaz o Moreno. Utilizando el operador IN</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="35" peso="4">
+			<descq>Lista los nombres, apellidos y nif de los empleados que trabajan en el departamento 3.</descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="36" peso="4">
+			<descq>Lista los nombres, apellidos y nif de los empleados que trabajan en los departamentos 2, 4 o 5. </descq>
+			<resppropo>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+	</consultas> 
+</relacionsql>

@@ -1,0 +1,12 @@
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\bin\Debug\Word.exe.config
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\bin\Debug\Word.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\bin\Debug\Word.pdb
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\obj\Debug\Word.csproj.AssemblyReference.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\obj\Debug\Word.csproj.SuggestedBindingRedirects.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\obj\Debug\Word.FrmHijo.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\obj\Debug\Word.Word.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\obj\Debug\Word.Properties.Resources.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\obj\Debug\Word.csproj.GenerateResource.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\obj\Debug\Word.csproj.CoreCompileInputs.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\obj\Debug\Word.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Word\Word\obj\Debug\Word.pdb

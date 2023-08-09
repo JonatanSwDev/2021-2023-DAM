@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CaratulaActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Musica.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/fade_bg"
+            app:popupTheme="@style/Theme.Musica.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/afterlife_main_bckgr" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/pActual"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="116dp"
+                android:src="@drawable/afterlife_main_bckgr"
+                app:civ_border_color="@color/md_blue_grey_200"
+                app:civ_border_width="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/pSiguiente"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="124dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/afterlife_main_bckgr"
+                app:civ_border_color="@color/md_blue_grey_500_50"
+                app:civ_border_width="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <SeekBar
+                android:id="@+id/progreso"
+                android:layout_width="357dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="232dp"
+                android:progressBackgroundTint="#434343"
+                android:progressTint="#03A9F4"
+                android:secondaryProgressTint="#000000"
+                android:thumbTint="#000000"
+                android:tickMarkTint="#DCCECE"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/bAtras"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="120dp"
+                android:onClick="anteriorCancion"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@mipmap/atras" />
+
+            <ImageView
+                android:id="@+id/bStop"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:onClick="stopCancion"
+                app:layout_constraintBottom_toBottomOf="@+id/bAtras"
+                app:layout_constraintStart_toEndOf="@+id/bAtras"
+                app:layout_constraintTop_toTopOf="@+id/bAtras"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@mipmap/stop" />
+
+            <ImageView
+                android:id="@+id/bPlayPause"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="50dp"
+                android:onClick="playPause"
+                app:layout_constraintBottom_toBottomOf="@+id/bStop"
+                app:layout_constraintEnd_toStartOf="@+id/bSiguiente"
+                app:layout_constraintTop_toTopOf="@+id/bStop"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@mipmap/play" />
+
+            <ImageView
+                android:id="@+id/bSiguiente"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="24dp"
+                android:onClick="siguienteCancion"
+                app:layout_constraintBottom_toBottomOf="@+id/bPlayPause"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@mipmap/siguiente" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

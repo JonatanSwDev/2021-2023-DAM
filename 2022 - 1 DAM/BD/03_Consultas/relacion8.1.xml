@@ -1,0 +1,479 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<relacionsql numrelacion="R8.1">
+	<configdb>
+		<hostdb>localhost</hostdb>
+		<esquemadb>asignaturas</esquemadb>
+		<usuariodb>asignaturas</usuariodb>
+		<passdb>asignaturas</passdb>
+	</configdb>
+	<student>
+		<alumno>GOMEZ GARCIA JONATAN</alumno>
+		<finalgrade>0</finalgrade>
+		<totalgrade>0</totalgrade>
+		<maxgrade>0</maxgrade>
+	</student>
+	<consultas>
+		<query id="1" peso="1">
+			<descq>Halla el valor absoluto de la nota media obtenida por la alumna Marta (como nmediaabs)</descq>
+			<resppropo>
+			select abs(avg(nota)) as nmediaabs
+from matricula
+where estudiante = "Marta";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="2" peso="1">
+			<descq> Halla la edad media de los alumnos (como emedia), 
+			interpretando que aquellos alumnos cuya edad no haya sido registrada en el sistema tienen 15 años.
+			</descq>
+			<resppropo>
+			select avg(ifnull(edad, 15)) as emedia
+from estudiante;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="3" peso="1">
+			<descq>
+			    Halla la media de las horas (como hmedia)
+				de las asignaturas en las que se ha matriculado el alumno Antonio.
+			</descq>
+			<resppropo>
+			select avg(horas) as hmedia
+from asignatura
+inner join matricula on(asignatura=nombre)
+where estudiante = "Antonio";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="4" peso="1">
+			<descq>
+			    Halla la nota media (como nmedia) obtenida por la alumna Lucía, redondeada a un único decimal.
+			</descq>
+			<resppropo>
+			select round(avg(nota), 1) as nmedia
+from matricula
+where estudiante = "Lucía";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="5" peso="1">
+			<descq>Halla la suma de todas las notas obtenidas (como snotas) en la asignatura "Lengua", 
+			omitiendo la parte decimal de cada nota.</descq>
+			<resppropo>
+			select sum(truncate(nota, 0)) as snotas
+from matricula
+where asignatura = "Lengua";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="6" peso="1">
+			<descq>Halla la nota de Pedro en Química (como nota),
+			y el número entero inmediatamente inferior a esta nota (como notainf).</descq>
+			<resppropo>
+			select nota, floor(nota) as notainf
+from matricula
+where estudiante = "Pedro"
+and asignatura = "Química";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="7" peso="1">
+			<descq>Halla la raiz cuadrada (redondeando a 2 decimales) (como raizedad)
+			de la edad de los alumnos que hayan aprobado Química.</descq>
+			<resppropo>
+			select round(sqrt(edad), 2) as raizedad
+from estudiante
+inner join matricula on(nombre=estudiante)
+where nota >=5;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="8" peso="1">
+			<descq>Muestra el nombre (como nombre) y la nota (como nota) de todos los alumnos 
+			que hayan suspendido Matemáticas, y también el entero inmediatamente superior a esta nota (como ninferior).</descq>
+			<resppropo>
+			<![CDATA[ select estudiante as nombre, nota, ceil(nota) as ninferior
+from matricula
+where asignatura = "Matemáticas"
+and nota < 5; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="9" peso="1">
+			<descq>Muestra un número (como signo) que nos indique el signo del valor obtenido al elevar a 3 la nota
+			de Pedro en Química (-1 negativo, 1 positivo).</descq>
+			<resppropo>
+			select if(sign(pow(nota, 3))='-1','negativo', 'positivo') as signo
+from matricula
+where estudiante = "Pedro"
+and asignatura = "Química";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="10" peso="1">
+			<descq>Muestra, en una sola cadena (como alumnoedad), el nombre de cada alumno y su edad,
+			separados por un guión sin espacios entre ellos.</descq>
+			<resppropo>
+			<!--select concat(nombre, "-", ifnull(edad, "")) as alumnoedad
+from estudiante; -->
+			select concat_ws("-", nombre, edad) as alumnoedad
+from estudiante;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="11" peso="1">
+			<descq>Muestra el nombre de todos los alumnos (como nombre), 
+			de forma que la cadena formada por cada nombre sea de 20 caracteres de largo, 
+			rellenando por la derecha con asteriscos los caracteres que falten hasta esos 20.</descq>
+			<resppropo>
+			select rpad(nombre, 20, "*") as nombre
+from estudiante;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="12" peso="1">
+			<descq>
+				Muestra el nombre de cada alumno menor de edad (como nombre), la nota (como nota) 
+				y el código ASCII (como ASCII) correspondiente a cada nota obtenida en la asignatura Lengua.
+			</descq>
+			<resppropo>
+			<![CDATA[ select estudiante as nombre, nota, ASCII(nota) as "ASCII"
+from matricula
+inner join estudiante on(nombre=estudiante)
+where asignatura = "Lengua"
+and edad < 18; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="13" peso="1">
+			<descq>Muestra en minúsculas el nombre de cada una de las asignaturas (como nombre)</descq>
+			<resppropo>
+			select lower(nombre) as nombre
+from asignatura;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="14" peso="1">
+			<descq>Muestra el nombre de todos los profesores (como nombre),
+			y también el nombre eliminando todos los espacios en blanco que puedan aparecer por la izquierda del nombre 
+			(como nombrelimpio)</descq>
+			<resppropo>
+			select nombre, ltrim(nombre) as nombrelimpio
+from profesor;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="15" peso="1">
+			<descq>Muestra en mayúsculas el nombre de todos los profesores (como NOMBRELIMPIO),
+			eliminando todos los sígnos de interrogación que puedan aparecer en el nombre.</descq>
+			<resppropo>
+			select upper(replace(nombre, '?','')) as NOMBRELIMPIO
+from profesor;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="16" peso="2">
+			<descq>Muestra en mayúsculas las tres primeras letras del nombre de cada asignatura (como ASIG).</descq>
+			<resppropo>
+			select upper(substr(nombre, 1, 3)) as ASIG
+from asignatura;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="17" peso="1">
+			<descq>Muestra el nombre de cada alumno (como nombre),
+			y la posición del nombre en el que aparece por primera vez el caracter "a" (como posa).</descq>
+			<resppropo>
+			select nombre, instr(nombre, "a") as posa
+from estudiante;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="18" peso="1">
+			<descq>Muestra el nombre de todas las asignaturas (como nombre) 
+			en las que está matriculado Pedro, y la longitud del nombre de cada asignatura (como lnombre).</descq>
+			<resppropo>
+			select asignatura as nombre, length(asignatura) as lnombre
+from matricula
+where estudiante = "Pedro";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="19" peso="1">
+			<descq>Muestra con una consulta los días restantes (cuántos quedan) del mes actual como (findemes).</descq>
+			<resppropo>
+			select datediff(last_day(now()), now()) as findemes;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="20" peso="1">
+			<descq>Halla el nombre de cada estudiante (como nombre), 
+			las asignaturas en la que está matriculado (como asig), el año (como anyo),
+			el mes (como mes) y el día (como dia) en el que se matricularon en ella.</descq>
+			<resppropo>
+			select estudiante as nombre, asignatura as asig, year(fecha) as anyo, month(fecha) as mes, day(fecha) as dia
+			from matricula;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="21" peso="1">
+			<descq>Halla el valor absoluto de la suma de las notas de la alumna Marta (como abssnota).</descq>
+			<resppropo>
+			select abs(sum(nota)) as abssnota
+			from matricula
+			where estudiante = "Marta";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="22" peso="1">
+			<descq>Halla la suma de las edades de todos los alumnos (como sedad), 
+			interpretando que aquellos alumnos cuya edad no haya sido registrada en el sistema tienen 18 años</descq>
+			<resppropo>
+			select sum(ifnull(edad, 18)) as sedad
+from estudiante;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="23" peso="1">
+			<descq>Halla la media de horas de todas las asignaturas (como mhoras),
+			y también el entero inmediatamente superior (como smhoras) .</descq>
+			<resppropo>
+			select avg(horas) as mhoras, ceil(avg(horas)) as smhoras
+			from asignatura;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="24" peso="1">
+			<descq>Halla la media de las horas en las que se ha matriculado la alumna Lucía (como mhoras),
+			y la misma media truncando el resultado a un único decimal (tmhoras)</descq>
+			<resppropo>
+			select avg(horas) as mhoras, truncate(avg(horas), 1) as tmhoras
+			from asignatura
+			inner join matricula on(nombre=asignatura)
+			where estudiante = "Lucía";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="25" peso="1">
+			<descq>Muestra el nombre (como nombre) y la nota de cada alumno en Historia (como nota)
+			que haya aprobado Historia, 
+			y también el entero inmediatamente inferior a esta nota (como inota) .</descq>
+			<resppropo>
+			select estudiante as nombre, nota, floor(nota) as inota
+			from matricula
+			where nota >= 5
+			and asignatura = "Historia";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="26" peso="1">
+			<descq>Muestra el nombre de cada alumno (como nombre), 
+			el caracter ASCII correspondiente a la edad (como aedad),
+			y el código ASCII correspondiente a la primera letra del nombre (como ca1nombre).</descq>
+			<resppropo>
+			select nombre, char(edad) as aedad, ASCII(substr(nombre, 1, 1)) as ca1nombre
+from estudiante;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="27" peso="1">
+			<descq>Muestra el nombre (como nombre) y las horas de cada asignatura (como horas), 
+			y también las horas de cada asignatura al elevarla a 2 redondeando a las decenas (como horas2).</descq>
+			<resppropo>
+			select nombre, horas, round(pow(horas, 2), -1) as horas2
+			from asignatura;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="28" peso="1">
+			<descq>Halla el nombre (como nombre) y la raiz cuadrada del valor absoluto de cada nota
+			de los alumnos mayores de edad, ignorando la parte decimal (como sqabsnota).</descq>
+			<resppropo>
+			select nombre, truncate(sqrt(abs(nota)), 0) as sqabsnota
+			from matricula
+			inner join estudiante on(nombre=estudiante)
+			where edad >= 18;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="29" peso="1">
+			<descq>Calcula la nota media de Lucía (como nmedia), redondeando cada nota al número entero más próximo 
+			antes de calcular la media y despues redondeando el resultado final al número entero más próximo. </descq>
+			<resppropo>
+			select round(avg(round(nota, 0)), 0) as nmedia
+			from matricula
+			where estudiante = "Lucía";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="30" peso="1">
+			<descq>Calcula la nota media de Lucía (como nmedia). 
+			Se asignará un 3 de nota en aquellas asignaturas que no hayan sido evaluadas. </descq>
+			<resppropo>
+			select avg(ifnull(nota, 3)) as nmedia
+			from matricula
+			where estudiante = "Lucía";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="31" peso="1">
+			<descq>Muestra un número (como nsigno) que nos indique el signo de la nota de Marta en Historia 
+			(-1 negativo, 1 positivo). </descq>
+			<resppropo>
+			select sign(nota) as nsigno
+			from matricula
+			where estudiante = "Marta"
+			and asignatura = "Historia";
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="32" peso="1">
+			<descq>Muestra una entrada por cada profesor con su nombre (como nombre) 
+			, y hallando la media de horas que ha de impartir cada uno (como hmedia). </descq>
+			<resppropo>
+			select profesor.nombre as nombre, avg(horas) as hmedia
+			from profesor
+			inner join asignatura on(profesor.nombre=profesor)
+			group by profesor.nombre;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="33" peso="1">
+			<descq>Muestra el nombre de cada estudiante menor de edad en mayúsculas (como nombre),
+			y la nota en la asignatura Matemáticas (como nmatematicas). </descq>
+			<resppropo>
+			<![CDATA[ select lower(nombre) as nombre, nota as nmatematicas
+			from estudiante
+			inner join matricula on(nombre=estudiante)
+			where asignatura = "Matemáticas"
+			and edad < 18; ]]>
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="34" peso="1">
+			<descq>Muestra, en una sola cadena, el nombre de cada alumno en minúsculas,ç
+			y la edad separados por un guión sin espacios. (como nombreedad)</descq>
+			<resppropo>
+			select concat(lower(nombre), "-", edad) as nombreedad
+			from estudiante;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+		<query id="35" peso="1">
+			<descq>Muestra, en una sola cadena, el nombre de cada alumno, 
+			la asignatura en la que está matriculado separado por un guión, y la cadena ": APROBADO", 
+			por cada alumno que haya aprobado (como nombreasigresult). 
+			Los alumnos que no hayan aprobado se la añadirá a la cadena la "cadena : SUSPENSO" en lugar de ": APROBADO".</descq>
+			<resppropo>
+			select concat(estudiante, "-", asignatura, "-", if(nota >= 5, "APROBADO", "SUSPENSO")) as nombreasigresult
+			from matricula;
+			</resppropo>
+			<respcorr>
+			</respcorr>
+			<gradeq></gradeq>
+			<feedback></feedback>
+		</query>
+	</consultas> 
+</relacionsql>

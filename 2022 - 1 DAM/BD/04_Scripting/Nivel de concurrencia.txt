@@ -1,0 +1,4 @@
+NIVEL DE SESION
+----------------
+MariaDB --> select @@TX_ISOLATION;  
+MySQL server --> SELECT @@session.transaction_isolation; 

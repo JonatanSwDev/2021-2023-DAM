@@ -1,0 +1,5 @@
+todo esto ya lo he hecho yo de una forma util en mi vida.
+he hecho un programa para solucionar problemas de transaccones de fichero csv
+para que la plataforma donde llevo el control de mis finanzas
+acepte todos los movimientos sin errores
+adjunto la carperta donde esta creado mi programa 

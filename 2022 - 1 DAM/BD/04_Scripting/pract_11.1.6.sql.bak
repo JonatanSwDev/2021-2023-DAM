@@ -1,0 +1,24 @@
+-- Jonatan Gomez Garcia Practica 11
+
+use comercial;
+
+-- Crear una vista llamada v_cli_fact que muestre el dni, nombre y apellidos de los clientes,
+-- así como el importe total +21% de iva de su facturación hasta la fecha
+create view v_cli_fact as
+select nombre, apellidos, dni, sum(importe)*1.21 as 'Importe + Iva'
+from cliente join factura using(dni)
+group by dni, nombre, apellidos;
+-- No se pueden hacer inserciones porque contienen datos calculados.
+-- Tampoco deja hacer modificaciones, dando el aviso de que no es modificable
+-- De igual manera no permite eliminar registros de la vista
+
+
+-- Crear una vista llamada v_distrito_fact que muestre el código postal junto con la
+-- facturación total asociada a los clientes de ese distrito.
+create view v_distrito_fact as
+select cod_postal, sum(importe)*1.21 as 'Importe + Iva'
+from cliente join factura using(dni)
+group by cod_postal;
+-- No se pueden hacer inserciones porque contienen datos calculados.
+-- Tampoco deja hacer modificaciones, dando el aviso de que no es modificable
+-- De igual manera no permite eliminar registros de la vista

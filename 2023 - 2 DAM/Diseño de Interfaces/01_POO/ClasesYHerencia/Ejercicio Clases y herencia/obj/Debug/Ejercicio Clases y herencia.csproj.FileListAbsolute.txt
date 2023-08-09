@@ -1,0 +1,11 @@
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\bin\Debug\Ejercicio Clases y herencia.exe.config
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\bin\Debug\Ejercicio Clases y herencia.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\bin\Debug\Ejercicio Clases y herencia.pdb
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\obj\Debug\Ejercicio Clases y herencia.csproj.AssemblyReference.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\obj\Debug\Ejercicio Clases y herencia.csproj.SuggestedBindingRedirects.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\obj\Debug\Ejercicio_Clases_y_herencia.Banco.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\obj\Debug\Ejercicio_Clases_y_herencia.Properties.Resources.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\obj\Debug\Ejercicio Clases y herencia.csproj.GenerateResource.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\obj\Debug\Ejercicio Clases y herencia.csproj.CoreCompileInputs.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\obj\Debug\Ejercicio Clases y herencia.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Ejercicio Clases y herencia\Ejercicio Clases y herencia\obj\Debug\Ejercicio Clases y herencia.pdb

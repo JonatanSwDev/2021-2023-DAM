@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE peliculas SYSTEM "Ejercicio33.dtd">
+<peliculas>
+  <pelicula>
+    <autor>paco</autor>
+    <autor>laura</autor>
+    <titulo>Con faldas y a lo loco</titulo>
+    <director>Billy Wilder</director>
+  </pelicula>
+</peliculas>

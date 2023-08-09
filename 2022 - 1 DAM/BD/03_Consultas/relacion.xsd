@@ -1,0 +1,48 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="relacionsql">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="configdb">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="hostdb"/>
+              <xs:element type="xs:string" name="esquemadb"/>
+              <xs:element type="xs:string" name="usuariodb"/>
+              <xs:element type="xs:string" name="passdb"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="student">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="alumno"/>
+              <xs:element type="xs:byte" name="finalgrade"/>
+              <xs:element type="xs:byte" name="totalgrade"/>
+              <xs:element type="xs:byte" name="maxgrade"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="consultas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="query" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="descq"/>
+                    <xs:element type="xs:string" name="resppropo"/>
+                    <xs:element type="xs:string" name="respcorr"/>
+                    <xs:element type="xs:string" name="gradeq"/>
+                    <xs:element type="xs:string" name="feedback"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:decimal" name="id" use="required"/>
+                  <xs:attribute type="xs:byte" name="peso" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="numrelacion"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

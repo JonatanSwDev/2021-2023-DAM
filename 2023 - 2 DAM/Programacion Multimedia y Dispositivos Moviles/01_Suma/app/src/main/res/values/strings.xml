@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">p01Suma</string>
+    <string name="txtnumero1">Primer numero:</string>
+    <string name="txtnumero2">Segundo numero:</string>
+    <string name="butCalcular">Calcular</string>
+    <string name="txtResultado">-</string>
+</resources>

@@ -1,0 +1,12 @@
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\bin\Debug\Jonatan Gomez Examen1ev.exe.config
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\bin\Debug\Jonatan Gomez Examen1ev.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\bin\Debug\Jonatan Gomez Examen1ev.pdb
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\obj\Debug\Jonatan Gomez Examen1ev.csproj.AssemblyReference.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\obj\Debug\Jonatan Gomez Examen1ev.csproj.SuggestedBindingRedirects.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\obj\Debug\Jonatan_Gomez_Examen1ev.CajeroAutomatico.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\obj\Debug\Jonatan_Gomez_Examen1ev.Properties.Resources.resources
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\obj\Debug\Jonatan Gomez Examen1ev.csproj.GenerateResource.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\obj\Debug\Jonatan Gomez Examen1ev.csproj.CoreCompileInputs.cache
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\obj\Debug\Jonatan Gomez Examen1ev.exe
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\obj\Debug\Jonatan Gomez Examen1ev.pdb
+D:\Usuario\JONeSHOOT\Escritorio\2DAM\DI\Tema 1\Jonatan Gomez Examen1ev\Jonatan Gomez Examen1ev\obj\Debug\Jonatan_Gomez_Examen1ev.Operaciones.resources

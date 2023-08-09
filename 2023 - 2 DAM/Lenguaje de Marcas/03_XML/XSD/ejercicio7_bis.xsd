@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="pagos">
+    <xs:complexType>
+      <xs:sequence>
+        
+        <xs:element name="nombre">
+          <xs:complexType>
+            <xs:attribute name="dni" type="dniType" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element name="fechaNacimiento">  
+          <xs:complexType>
+            <xs:attribute name="edad" type="edadType"/>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="hora" type="xs:time" maxOccurs="unbounded"/>
+        <xs:element name="precio" type="xs:decimal"/>
+        <xs:element name="cantidad" type="xs:integer" fixed="678"/>
+        <xs:element name="pagado" type="xs:boolean" default="false"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:simpleType name="dniType">
+    <xs:restriction base="xs:string">
+        <xs:maxLength value="10"></xs:maxLength>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="edadType">
+    <xs:restriction base="xs:integer">
+        <xs:minInclusive value="16"/>
+        <xs:maxInclusive value="24"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

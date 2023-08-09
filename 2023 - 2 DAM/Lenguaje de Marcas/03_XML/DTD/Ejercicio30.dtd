@@ -1,0 +1,9 @@
+	<!ELEMENT urbanizacion (casa+)>
+	<!ELEMENT casa (cocina, aseo1, aseo2?, salon, dormitorio1, dormitorio2?)>
+  <!ATTLIST casa portal NMTOKEN #REQUIRED>
+	<!ELEMENT cocina (#PCDATA)>
+	<!ELEMENT aseo1 (#PCDATA)>
+	<!ELEMENT aseo2 (#PCDATA)>
+	<!ELEMENT salon (#PCDATA)>
+	<!ELEMENT dormitorio1 (#PCDATA)>
+	<!ELEMENT dormitorio2 (#PCDATA)>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">MisLugaresJavaR</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="butMostrarLugares">MOSTRAR LUGARES</string>
+    <string name="butPreferencias">PREFERENCIAS</string>
+    <string name="butAcerca">ACERCA DE</string>
+    <string name="butSalir">SALIR</string>
+
+    <string name="txtNombre">Nombre:</string>
+    <string name="editNombre">algo que identifique el lugar</string>
+    <string name="txtTipo">Tipo:</string>
+    <string name="txtDireccion">Dirección:</string>
+    <string name="editDireccion">dirección del lugar</string>
+    <string name="txtTelefono">Teléfono:</string>
+    <string name="editTelefono">telefono para contactar</string>
+    <string name="txtUrl">URL:</string>
+    <string name="editUrl">página web</string>
+    <string name="txtComentario">Comentario:</string>
+    <string name="editComentario">introduce tus notas</string>
+    <string name="menuCancelar">CANCELAR</string>
+    <string name="menuGuardar">GUARDAR</string>
+
+
+
+
+</resources>

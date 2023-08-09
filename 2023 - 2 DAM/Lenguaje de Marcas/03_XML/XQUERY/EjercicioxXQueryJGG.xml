@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejercicios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="EjerciciosXpathXquery.xsd">
+	<ejercicio numero="e1">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten por cada zona el numero de productos que tiene</enunciado>
+		<query>
+			for $zona in doc("db/BDPruebas/productos.xml")/distinct-values(/productos/produc/cod_zona)
+			let $num_productos := count(/productos/produc[cod_zona = $zona])
+			return concat("Zona ", $zona, ": ", $num_productos, " productos")
+		</query>
+	</ejercicio> 
+
+	<ejercicio numero="e2">
+		<bbdd>productos.xml</bbdd>
+		<enunciado><![CDATA[Obten la denominacion de los productos entre las etiquetas
+			 		<zona10> su su codigo de zona 10, <zona20> si son de la zona 20, 
+					<zona30> si son de la zona 30 y <zona40> si son de la zona 40]]> </enunciado>
+		<query>
+			<![CDATA[for $prod in doc("db/BDPruebas/productos.xml")//produc
+			return concat("<zona", $prod/cod_zona, ">", $prod/denominacion, "</zona", $prod/cod_zona, ">" )]]>
+		</query>
+	</ejercicio>
+
+	<ejercicio numero="e3">
+		<bbdd>productos.xml</bbdd>
+		<enunciado>Obten por cada zona la denominacion del o de los productos mas caros</enunciado>
+		<query>
+			for $zona in doc("db/BDPruebas/productos.xml")/distinct-values(//cod_zona)
+			let $maxPrecio := max(//produc[cod_zona = $zona]/precio)
+			let $deno := distinct-values(//produc[cod_zona = $zona and precio = $maxPrecio]/denominacion)
+			return $deno
+		</query>
+	</ejercicio>
+
+	<ejercicio numero="e4">
+		<bbdd>productos.xml</bbdd>
+		<enunciado><![CDATA[Obten la denominacion de los productos contenida entr las etiquetas <placa></placa>
+			para los productos en cuya denominacion aparece la palabra Placa Base, <memoria></memoria>
+			para los que contienen a la palabra Memoria, <micro></micro> para los que contienen la palabra Micro
+			y <otros></otros> para el resto de productos]]></enunciado>
+		<query>
+			<![CDATA[for $prod in doc("db/BDPruebas/productos.xml")//denominacion
+			return if (contains($prod, "Placa Base"))
+			then concat("<placa>",$prod,"</placa>")
+			else if (contains($prod, "Memoria"))
+			then concat("<memoria>",$prod,"</memoria>")
+			else if (contains($prod, "Micro"))
+			then concat("<micro>",$prod,"</micro>")
+			else concat("<otros>",$prod,"</otros>")]]>
+		</query>
+	</ejercicio>
+
+	<ejercicio numero="e5">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Deuelve el codigo de sucursal y el numero de cuentas que tiene de tipo AHORRA y de tipo PENSIONES</enunciado>
+		<query>
+			for $suc in doc("db/BDPruebas/sucursales.xml")//sucursal
+			let $ahorro := count($suc/cuenta[@tipo = "AHORRO"])
+			let $pens := count($suc/cuenta[@tipo = "PENSIONES"])
+			return concat($suc/@codigo, " --> Cuentas Ahorro: ", $ahorro, ", Cuentas Pensiones: ", $pens)
+		</query>
+	</ejercicio>
+
+	<ejercicio numero="e6">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Devuelve por cada sucursal el codigo de sucursal, el director, la poblacion, 
+			la suma del total debe y la suma del total haber de sus cuentas </enunciado>
+		<query>
+			for $suc in doc("db/BDPruebas/sucursales.xml")//sucursal
+			let $debe := sum($suc/cuenta/saldodebe)
+			let $haber := sum($suc/cuenta/saldohaber)
+			return concat($suc/@codigo, "--> Director: ", $suc/director, ", Poblacion: ", $suc/poblacion, ", Debe: ", $debe, ", Hay: ", $haber)
+		</query>
+	</ejercicio>
+
+	<ejercicio numero="e7">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Devuelve el nombre de los directores, el codigo de sucursal y la poblacion de las sucursales con mas de 3 cuentas</enunciado>
+		<query>
+			for $suc in doc("db/BDPruebas/sucursales.xml")//sucursal[count(cuenta) > 3]
+			return concat($suc/@codigo, "--> Director: ", $suc/director, ", Poblacion: ", $suc/poblacion)
+		</query>
+	</ejercicio>
+
+	<ejercicio numero="e8">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Devuelve el nombre de los directores, el codigo de sucursal y los datos de las cuentas con mas saldo debe </enunciado>
+		<query>
+			for $suc in doc("db/BDPruebas/sucursales.xml")//sucursal
+			let $max := max($suc/cuenta/saldodebe)
+			let $cuenta := $suc/cuenta[saldodebe = $max]
+			let $datos := concat(", Titular: ", $cuenta/nombre, ", Numero: ", $cuenta/numero, ", Saldo: ", $cuenta/saldohaber, ", Debe: ", $cuenta/saldodebe)
+			return concat($suc/@codigo, "--> Director: ", $suc/director, ", DatosCuenta: ", $datos)
+		</query>
+	</ejercicio>
+
+	<ejercicio numero="e9">
+		<bbdd>sucursales.xml</bbdd>
+		<enunciado>Devuelve la cuenta del tipo PENSIONESS que ha hecho mas aportacion</enunciado>
+		<query>
+			for $cuen in doc("db/BDPruebas/sucursales.xml")//cuenta[@tipo = "PENSIONES"]
+			let $max := max(//cuenta[@tipo = "PENSIONES"]/aportacion)
+			return $cuen[aportacion = $max]
+		</query>
+	</ejercicio>
+
+</ejercicios>
